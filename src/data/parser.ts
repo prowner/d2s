@@ -250,7 +250,7 @@ function _readMagicNames(tsv: any, strings: any): any[] {
 function _readProperties(tsv: any, strings: any): any {
   const arr = {} as any;
   const cCode = tsv.header.indexOf("code");
-  const cStats = [];
+  const cStats: any[] = [];
   for (let j = 1; j <= 7; j++) {
     cStats[j] = {} as any;
     cStats[j].cStat = tsv.header.indexOf(`stat${j}`);
@@ -259,7 +259,7 @@ function _readProperties(tsv: any, strings: any): any {
   for (let i = 1; i < tsv.lines.length; i++) {
     const code = tsv.lines[i][cCode];
     if (code != "Expansion") {
-      const prop = [];
+      const prop: any[] = [];
       //prop.code = code;
       for (let j = 1; j <= 7; j++) {
         const stat = tsv.lines[i][cStats[j].cStat];
@@ -307,7 +307,7 @@ function _readTypes(tsv: any, strings: any): any {
   const cItemType = tsv.header.indexOf("ItemType");
   const cEquiv1 = tsv.header.indexOf("Equiv1");
   const cEquiv2 = tsv.header.indexOf("Equiv2");
-  const cInvGfx = [];
+  const cInvGfx: any[] = [];
   for (let i = 1; i <= 6; i++) {
     cInvGfx.push(tsv.header.indexOf(`InvGfx${i}`));
   }
@@ -315,7 +315,7 @@ function _readTypes(tsv: any, strings: any): any {
     const code = tsv.lines[i][cCode];
     if (code) {
       const o = {} as any;
-      const invgfx = [];
+      const invgfx: any[] = [];
       for (let j = 0; j <= 6; j++) {
         if (tsv.lines[i][cInvGfx[j]]) invgfx[j] = tsv.lines[i][cInvGfx[j]];
       }

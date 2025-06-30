@@ -65,7 +65,7 @@ export function enhanceItem(item: types.IItem, constants: types.IConstantData, l
       item.magic_attributes = _compactAttributes(t.m[pt.gt], constants);
     }
   }
-  let details = null;
+  let details: any = null;
   if (constants.armor_items[item.type]) {
     details = constants.armor_items[item.type];
     item.type_id = ItemType.Armor;
@@ -327,7 +327,7 @@ function _descFunc(
     return;
   }
   const sign = v >= 0 ? "+" : "";
-  let value = null;
+  let value: any = null;
   const desc2Present = descFunc >= 6 && descFunc <= 10;
   switch (descFunc) {
     case 1:

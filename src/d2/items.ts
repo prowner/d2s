@@ -636,9 +636,9 @@ function _writeSimpleBits(writer: BitWriter, version: number, item: types.IItem,
 
 export function _readMagicProperties(reader: BitReader, constants: types.IConstantData) {
   let id = reader.ReadUInt16(9);
-  const magic_attributes = [];
+  const magic_attributes: types.IMagicProperty[] = [];
   while (id != 0x1ff) {
-    const values = [];
+    const values: number[] = [];
     if (id > constants.magical_properties.length) {
       throw new Error(`Invalid Stat Id: ${id} at position ${reader.offset - 9}`);
     }
