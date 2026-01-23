@@ -2,6 +2,7 @@
 export interface IConfig {
   extendedStash?: boolean;
   sortProperties?: boolean;
+  disableItemEnhancements?: boolean;
 }
 
 export interface IConstantData {

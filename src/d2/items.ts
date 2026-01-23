@@ -300,7 +300,9 @@ export async function readItem(
     }
 
     //magical properties
-    let magic_attributes = _readMagicProperties(reader, constants);
+
+    const skipMagicPeroperties = ["qll", "spe", "sol", "fng", "jaw", "scz", "flg", "tal"].includes(item.type);
+    let magic_attributes = _readMagicProperties(reader, constants, skipMagicPeroperties);
     item.magic_attributes = magic_attributes;
 
     while (plist_flag > 0) {
@@ -634,7 +636,22 @@ function _writeSimpleBits(writer: BitWriter, version: number, item: types.IItem,
   }
 }
 
-export function _readMagicProperties(reader: BitReader, constants: types.IConstantData) {
+export function _readMagicProperties(reader: BitReader, constants: types.IConstantData, skipMagicProps?: boolean) {
+  if (skipMagicProps) {
+    // Scan for the 0x1FF end marker (9 bits of 1)
+    const bitStr = reader.bits.join("");
+    const searchStart = reader.offset;
+    const marker = "111111111"; // 9-bit 0x1FF marker
+    const idx = bitStr.indexOf(marker, searchStart);
+
+    if (idx !== -1) {
+      reader.SeekBit(idx + 9); // Move reader past the 0x1FF marker
+    } else {
+      console.warn("0x1FF end marker not found, skipping failed");
+    }
+
+    return []; // Return empty list since we're skipping parsing
+  }
   let id = reader.ReadUInt16(9);
   const magic_attributes: types.IMagicProperty[] = [];
   while (id != 0x1ff) {

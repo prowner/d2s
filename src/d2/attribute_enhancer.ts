@@ -57,6 +57,9 @@ export async function enhanceItems(
 }
 
 export function enhanceItem(item: types.IItem, constants: types.IConstantData, level = 1, config?: types.IConfig, parent?: types.IItem) {
+  if(config?.disableItemEnhancements) {
+    return;
+  }
   if (parent) {
     //socket item.
     const pt = constants.armor_items[parent.type] || constants.weapon_items[parent.type] || constants.other_items[item.type];

@@ -11,6 +11,7 @@ import { enhanceAttributes, enhanceItems } from "./attribute_enhancer";
 const defaultConfig = {
   extendedStash: false,
   sortProperties: true,
+  disableItemEnhancements: false,
 } as types.IConfig;
 
 function reader(buffer: Uint8Array) {
