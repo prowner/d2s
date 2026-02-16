@@ -9,11 +9,19 @@ export function readHeader(char: types.ID2S, reader: BitReader, constants: types
   char.header.checksum = reader.ReadUInt32().toString(16).padStart(8, "0"); //0x000c
   reader.SkipBytes(4); //0x0010
   if (char.header.version > 0x61) {
-    reader.SeekByte(267);
+    if (char.header.version === 0x69) {
+      reader.SeekByte(297);
+    } else {
+      reader.SeekByte(267);
+    }
   }
   char.header.name = reader.ReadString(16).replace(/\0/g, ""); //0x0014
   if (char.header.version > 0x61) {
-    reader.SeekByte(36);
+    if (char.header.version === 0x69) {
+      reader.SeekByte(20);
+    } else {
+      reader.SeekByte(36);
+    }
   }
   char.header.status = _readStatus(reader.ReadUInt8()); //0x0024
   char.header.progression = reader.ReadUInt8(); //0x0025
@@ -37,8 +45,12 @@ export function readHeader(char: types.ID2S, reader: BitReader, constants: types
   char.header.merc_id = reader.ReadUInt32().toString(16); //0x00b3
   char.header.merc_name_id = reader.ReadUInt16(); //0x00b7
   char.header.merc_type = reader.ReadUInt16(); //0x00b9
-  char.header.merc_experience = reader.ReadUInt32(); //0x00bb
-  reader.SkipBytes(144); //0x00bf [unk]
+  char.header.merc_experience = reader.ReadUInt32(); //0x00bb 175
+  if (char.header.version === 0x69) {
+    reader.SkipBytes(228); //0x00bf [unk]
+  } else {
+    reader.SkipBytes(144); //0x00bf [unk]
+  }
   reader.SkipBytes(4); //0x014f [quests header identifier = 0x57, 0x6f, 0x6f, 0x21 "Woo!"]
   reader.SkipBytes(4); //0x0153 [version = 0x6, 0x0, 0x0, 0x0]
   reader.SkipBytes(2); //0x0153 [quests header length = 0x2a, 0x1]
@@ -60,7 +72,11 @@ export function writeHeader(char: types.ID2S, writer: BitWriter, constants: type
     .WriteUInt32(0x0); //0x000c (checksum. needs to be calculated after all data writer)
 
   if (char.header.version > 0x61) {
-    writer.WriteArray(new Uint8Array(Array(20).fill(0))); // 0x0010
+    if (char.header.version === 0x69) {
+      writer.WriteArray(new Uint8Array([0x00, 0x00, 0x00, 0x00]));
+    } else {
+      writer.WriteArray(new Uint8Array(Array(20).fill(0))); // 0x0010
+    }
   } else {
     writer
       .WriteArray(new Uint8Array([0x00, 0x00, 0x00, 0x00])) //0x0010
@@ -93,10 +109,19 @@ export function writeHeader(char: types.ID2S, writer: BitWriter, constants: type
     .WriteUInt32(char.header.merc_experience); //0x00bb
 
   if (char.header.version > 0x61) {
-    writer
-      .WriteArray(new Uint8Array(76)) //0x00bf [unk]
-      .WriteString(char.header.name, 16) //0x010b
-      .WriteArray(new Uint8Array(52)); //0x011b [unk]
+    if (char.header.version === 0x69) {
+      writer
+        .WriteArray(new Uint8Array(73)) //175
+        .WriteArray(new Uint8Array([0x03])) //248
+        .WriteArray(new Uint8Array(50)) //248
+        .WriteString(char.header.name, 16) //299
+        .WriteArray(new Uint8Array(88)); //0x011b [unk]
+    } else {
+      writer
+        .WriteArray(new Uint8Array(76)) //0x00bf [unk]
+        .WriteString(char.header.name, 16) //0x010b
+        .WriteArray(new Uint8Array(52)); //0x011b [unk]
+    }
   } else {
     writer
       .WriteArray(new Uint8Array(140)) //0x00bf [unk]

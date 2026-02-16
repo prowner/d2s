@@ -46,4 +46,5 @@ const SkillOffset: ISkillOffset = {
   Barbarian: 126,
   Druid: 221,
   Assassin: 251,
+  Warlock: 373,
 };

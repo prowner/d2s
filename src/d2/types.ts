@@ -380,6 +380,7 @@ export interface IItem {
     b25?: Uint8Array;
     b27_31?: Uint8Array;
     plist_flag?: number;
+    chest_stackable?: number;
   };
   rare_name_id: number;
   rare_name_id2: number;

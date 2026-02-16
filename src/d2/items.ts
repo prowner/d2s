@@ -1,6 +1,8 @@
 import * as types from "./types";
 import { BitReader } from "../binary/bitreader";
 import { BitWriter } from "../binary/bitwriter";
+import { write } from "fs";
+import { count } from "console";
 
 enum ItemType {
   Armor = 0x01,
@@ -87,6 +89,14 @@ export async function writeGolemItems(char: types.ID2S, constants: types.IConsta
   } else {
     writer.WriteUInt8(0);
   }
+  return writer.ToArray();
+}
+
+export async function writeDemon(char: types.ID2S, constants: types.IConstantData, config: types.IConfig): Promise<Uint8Array> {
+  const writer = new BitWriter();
+  writer.WriteArray(new Uint8Array([0x01, 0x00]));
+  writer.WriteString("lf", 2);
+  writer.WriteArray(new Uint8Array([0x00, 0x00]));
   return writer.ToArray();
 }
 
@@ -241,8 +251,23 @@ export async function readItem(
       if (item.runeword_id == 2718) {
         item.runeword_id = 48;
       }
-      if (constants.runewords[item.runeword_id]) {
-        item.runeword_name = constants.runewords[item.runeword_id]!.n!;
+      const mappedId =
+        {
+          2784: 196,
+          2785: 197,
+          2786: 198,
+          2787: 199,
+          2788: 200,
+          2789: 201,
+          2790: 202,
+          2791: 203,
+          2792: 204,
+          3074: 205,
+          3075: 206,
+          3076: 207,
+        }[item.runeword_id] || item.runeword_id;
+      if (constants.runewords[mappedId]) {
+        item.runeword_name = constants.runewords[mappedId]!.n!;
       }
       reader.ReadUInt8(4);
     }
@@ -278,6 +303,10 @@ export async function readItem(
       if (item.max_durability > 0) {
         item.current_durability = reader.ReadUInt16(constants.magical_properties[72].sB) - constants.magical_properties[72].sA;
       }
+    }
+
+    if (version === 0x69) {
+      reader.SkipBits(1); //unknown bit in RotW
     }
 
     if (constants.stackables[item.type]) {
@@ -325,12 +354,28 @@ export async function readItem(
       }
     }
   }
+
+  if (version === 0x69) {
+    item._unknown_data.chest_stackable = reader.ReadBit(); //unknown bit in RotW (stackable in chest?)
+    if (item._unknown_data.chest_stackable) {
+      reader.SkipBits(8);
+    }
+  }
   reader.Align();
 
   if (item.nr_of_items_in_sockets > 0 && item.simple_item === 0) {
     item.socketed_items = [];
     for (let i = 0; i < item.nr_of_items_in_sockets; i++) {
       item.socketed_items.push(await readItem(reader, version, constants, config, item));
+    }
+  }
+
+  if (item.type === "cjw") {
+    reader.SkipBytes(5);
+    reader.SkipBits(7);
+    const b = reader.ReadBit();
+    if (b) {
+      reader.SkipBytes(1);
     }
   }
   //console.log(JSON.stringify(item));
@@ -445,6 +490,10 @@ export async function writeItem(
       }
     }
 
+    if (version === 0x69) {
+      writer.WriteUInt8(constants.stackables[item.type] ? 1 : 0, 1); //unknown bit in RotW
+    }
+
     if (constants.stackables[item.type]) {
       writer.WriteUInt16(item.quantity, 9);
     }
@@ -469,6 +518,14 @@ export async function writeItem(
 
     if (item.given_runeword === 1) {
       _writeMagicProperties(writer, item.runeword_attributes, constants);
+    }
+  }
+
+  if (version === 0x69) {
+    writer.WriteUInt8(item._unknown_data.chest_stackable || 0, 1);
+
+    if (item._unknown_data.chest_stackable) {
+      writer.WriteUInt8(0, 8); //unknown bit in RotW (stackable in chest?)
     }
   }
 
@@ -561,6 +618,7 @@ function _readSimpleBits(item: types.IItem, reader: BitReader, version: number, 
     }
 
     let bits = item.simple_item ? 1 : 3;
+
     if (item.categories?.includes("Quest")) {
       item.quest_difficulty = reader.ReadUInt16(constants.magical_properties[356].sB) - constants.magical_properties[356].sA;
       bits = 1;
@@ -654,7 +712,14 @@ export function _readMagicProperties(reader: BitReader, constants: types.IConsta
   }
   let id = reader.ReadUInt16(9);
   const magic_attributes: types.IMagicProperty[] = [];
+  let zeroCounter = 0;
   while (id != 0x1ff) {
+    if (id === 0) {
+      zeroCounter++;
+    }
+    if (zeroCounter > 10) {
+      throw new Error(`Possible malformed data at position ${reader.offset - 9}`);
+    }
     const values: number[] = [];
     if (id > constants.magical_properties.length) {
       throw new Error(`Invalid Stat Id: ${id} at position ${reader.offset - 9}`);

@@ -32,7 +32,7 @@ async function read(buffer: Uint8Array, constants?: types.IConstantData, userCon
   await readSkills(char, reader, constants);
   await items.readCharItems(char, reader, constants, config);
   await items.readCorpseItems(char, reader, constants, config);
-  if (char.header.status.expansion) {
+  if (char.header.status.expansion || char.header.version === 0x69) {
     await items.readMercItems(char, reader, constants, config);
     await items.readGolemItems(char, reader, constants, config);
   }
@@ -72,9 +72,12 @@ async function write(data: types.ID2S, constants?: types.IConstantData, userConf
   writer.WriteArray(await writeSkills(data, constants));
   writer.WriteArray(await items.writeCharItems(data, constants, config));
   writer.WriteArray(await items.writeCorpseItem(data, constants, config));
-  if (data.header.status.expansion) {
+  if (data.header.status.expansion || data.header.version === 0x69) {
     writer.WriteArray(await items.writeMercItems(data, constants, config));
     writer.WriteArray(await items.writeGolemItems(data, constants, config));
+  }
+  if (data.header.version === 0x69) {
+    writer.WriteArray(await items.writeDemon(data, constants, config));
   }
   await fixHeader(writer);
   return writer.ToArray();
