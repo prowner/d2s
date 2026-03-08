@@ -31,6 +31,7 @@ export interface ID2S {
   corpse_items: IItem[];
   merc_items: IItem[];
   golem_item: IItem;
+  demon: IDemon;
   is_dead: number;
 }
 
@@ -387,6 +388,8 @@ export interface IItem {
   displayed_magic_attributes: IMagicProperty[];
   displayed_runeword_attributes: IMagicProperty[];
   displayed_combined_magic_attributes: IMagicProperty[];
+  amount_in_shared_stash?: number;
+  chronicle?: IItemChronicle;
 }
 
 export interface IWeaponDamage {
@@ -424,16 +427,32 @@ export interface IStash {
   sharedGold: number;
   hardcore: boolean;
   pages: IStashPage[];
+  chronicle?: IChronicle;
+}
+
+export interface IChronicle {
+  data: number[];
+}
+
+export interface IItemChronicle {
+  monsterId: number;
+  timestamp: number;
 }
 
 export interface IStashPage {
   name: string;
   type: number;
   items: IItem[];
+  gold?: number;
+  isStackable?: number;
 }
 
 export enum EItemQuality {
   normal,
   exceptional,
   elite,
+}
+
+export interface IDemon {
+  data: number[];
 }

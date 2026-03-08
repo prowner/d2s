@@ -74,357 +74,1011 @@ export let constants = {
     },
   ],
   skills: [
-    { s: 'Attack' },
-    { s: 'Kick' },
-    { s: 'Throw' },
-    { s: 'Unsummon' },
-    { s: 'Left Hand Throw' },
-    { s: 'Left Hand Swing' },
-    { s: 'Magic Arrow', c: 'ama' },
-    { s: 'Fire Arrow', c: 'ama' },
-    { s: 'Inner Sight', c: 'ama' },
-    { s: 'Critical Strike', c: 'ama' },
-    { s: 'Jab', c: 'ama' },
-    { s: 'Cold Arrow', c: 'ama' },
-    { s: 'Multiple Shot', c: 'ama' },
-    { s: 'Dodge', c: 'ama' },
-    { s: 'Power Strike', c: 'ama' },
-    { s: 'Poison Javelin', c: 'ama' },
-    { s: 'Exploding Arrow', c: 'ama' },
-    { s: 'Slow Missiles', c: 'ama' },
-    { s: 'Avoid', c: 'ama' },
-    { s: 'Impale', c: 'ama' },
-    { s: 'Lightning Bolt', c: 'ama' },
-    { s: 'Ice Arrow', c: 'ama' },
-    { s: 'Guided Arrow', c: 'ama' },
-    { s: 'Penetrate', c: 'ama' },
-    { s: 'Charged Strike', c: 'ama' },
-    { s: 'Plague Javelin', c: 'ama' },
-    { s: 'Strafe', c: 'ama' },
-    { s: 'Immolation Arrow', c: 'ama' },
-    { s: 'Decoy', c: 'ama' },
-    { s: 'Evade', c: 'ama' },
-    { s: 'Fend', c: 'ama' },
-    { s: 'Freezing Arrow', c: 'ama' },
-    { s: 'Valkyrie', c: 'ama' },
-    { s: 'Pierce', c: 'ama' },
-    { s: 'Lightning Strike', c: 'ama' },
-    { s: 'Lightning Fury', c: 'ama' },
-    { s: 'Fire Bolt', c: 'sor' },
-    { s: 'Warmth', c: 'sor' },
-    { s: 'Charged Bolt', c: 'sor' },
-    { s: 'Ice Bolt', c: 'sor' },
-    { s: 'Frozen Armor', c: 'sor' },
-    { s: 'Inferno', c: 'sor' },
-    { s: 'Static Field', c: 'sor' },
-    { s: 'Telekinesis', c: 'sor' },
-    { s: 'Frost Nova', c: 'sor' },
-    { s: 'Ice Blast', c: 'sor' },
-    { s: 'Blaze', c: 'sor' },
-    { s: 'Fire Ball', c: 'sor' },
-    { s: 'Nova', c: 'sor' },
-    { s: 'Lightning', c: 'sor' },
-    { s: 'Shiver Armor', c: 'sor' },
-    { s: 'Fire Wall', c: 'sor' },
-    { s: 'Enchant', c: 'sor' },
-    { s: 'Chain Lightning', c: 'sor' },
-    { s: 'Teleport', c: 'sor' },
-    { s: 'Glacial Spike', c: 'sor' },
-    { s: 'Meteor', c: 'sor' },
-    { s: 'Thunder Storm', c: 'sor' },
-    { s: 'Energy Shield', c: 'sor' },
-    { s: 'Blizzard', c: 'sor' },
-    { s: 'Chilling Armor', c: 'sor' },
-    { s: 'Fire Mastery', c: 'sor' },
-    { s: 'Hydra', c: 'sor' },
-    { s: 'Lightning Mastery', c: 'sor' },
-    { s: 'Frozen Orb', c: 'sor' },
-    { s: 'Cold Mastery', c: 'sor' },
-    { s: 'Amplify Damage', c: 'nec' },
-    { s: 'Teeth', c: 'nec' },
-    { s: 'Bone Armor', c: 'nec' },
-    { s: 'Skeleton Mastery', c: 'nec' },
-    { s: 'Raise Skeleton', c: 'nec' },
-    { s: 'Dim Vision', c: 'nec' },
-    { s: 'Weaken', c: 'nec' },
-    { s: 'Poison Dagger', c: 'nec' },
-    { s: 'Corpse Explosion', c: 'nec' },
-    { s: 'Clay Golem', c: 'nec' },
-    { s: 'Iron Maiden', c: 'nec' },
-    { s: 'Terror', c: 'nec' },
-    { s: 'Bone Wall', c: 'nec' },
-    { s: 'Golem Mastery', c: 'nec' },
-    { s: 'Raise Skeletal Mage', c: 'nec' },
-    { s: 'Confuse', c: 'nec' },
-    { s: 'Life Tap', c: 'nec' },
-    { s: 'Poison Explosion', c: 'nec' },
-    { s: 'Bone Spear', c: 'nec' },
-    { s: 'Blood Golem', c: 'nec' },
-    { s: 'Attract', c: 'nec' },
-    { s: 'Decrepify', c: 'nec' },
-    { s: 'Bone Prison', c: 'nec' },
-    { s: 'Summon Resist', c: 'nec' },
-    { s: 'Iron Golem', c: 'nec' },
-    { s: 'Lower Resist', c: 'nec' },
-    { s: 'Poison Nova', c: 'nec' },
-    { s: 'Bone Spirit', c: 'nec' },
-    { s: 'Fire Golem', c: 'nec' },
-    { s: 'Revive', c: 'nec' },
-    { s: 'Sacrifice', c: 'pal' },
-    { s: 'Smite', c: 'pal' },
-    { s: 'Might', c: 'pal' },
-    { s: 'Prayer', c: 'pal' },
-    { s: 'Resist Fire', c: 'pal' },
-    { s: 'Holy Bolt', c: 'pal' },
-    { s: 'Holy Fire', c: 'pal' },
-    { s: 'Thorns', c: 'pal' },
-    { s: 'Defiance', c: 'pal' },
-    { s: 'Resist Cold', c: 'pal' },
-    { s: 'Zeal', c: 'pal' },
-    { s: 'Charge', c: 'pal' },
-    { s: 'Blessed Aim', c: 'pal' },
-    { s: 'Cleansing', c: 'pal' },
-    { s: 'Resist Lightning', c: 'pal' },
-    { s: 'Vengeance', c: 'pal' },
-    { s: 'Blessed Hammer', c: 'pal' },
-    { s: 'Concentration', c: 'pal' },
-    { s: 'Holy Freeze', c: 'pal' },
-    { s: 'Vigor', c: 'pal' },
-    { s: 'Conversion', c: 'pal' },
-    { s: 'Holy Shield', c: 'pal' },
-    { s: 'Holy Shock', c: 'pal' },
-    { s: 'Sanctuary', c: 'pal' },
-    { s: 'Meditation', c: 'pal' },
-    { s: 'Fist of the Heavens', c: 'pal' },
-    { s: 'Fanaticism', c: 'pal' },
-    { s: 'Conviction', c: 'pal' },
-    { s: 'Redemption', c: 'pal' },
-    { s: 'Salvation', c: 'pal' },
-    { s: 'Bash', c: 'bar' },
-    { s: 'Blade Mastery', c: 'bar' },
-    { s: 'Axe Mastery', c: 'bar' },
-    { s: 'Mace Mastery', c: 'bar' },
-    { s: 'Howl', c: 'bar' },
-    { s: 'Find Potion', c: 'bar' },
-    { s: 'Leap', c: 'bar' },
-    { s: 'Double Swing', c: 'bar' },
-    { s: 'Polearm Mastery', c: 'bar' },
-    { s: 'Throwing Mastery', c: 'bar' },
-    { s: 'Spear Mastery', c: 'bar' },
-    { s: 'Taunt', c: 'bar' },
-    { s: 'Shout', c: 'bar' },
-    { s: 'Stun', c: 'bar' },
-    { s: 'Double Throw', c: 'bar' },
-    { s: 'Increased Stamina', c: 'bar' },
-    { s: 'Find Item', c: 'bar' },
-    { s: 'Leap Attack', c: 'bar' },
-    { s: 'Concentrate', c: 'bar' },
-    { s: 'Iron Skin', c: 'bar' },
-    { s: 'Battle Cry', c: 'bar' },
-    { s: 'Frenzy', c: 'bar' },
-    { s: 'Increased Speed', c: 'bar' },
-    { s: 'Battle Orders', c: 'bar' },
-    { s: 'Grim Ward', c: 'bar' },
-    { s: 'Whirlwind', c: 'bar' },
-    { s: 'Berserk', c: 'bar' },
-    { s: 'Natural Resistance', c: 'bar' },
-    { s: 'War Cry', c: 'bar' },
-    { s: 'Battle Command', c: 'bar' },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    { s: 'Firestorm' },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    { s: 'Scroll of Identify' },
-    { s: 'Tome of Identify' },
-    { s: 'Scroll of Town Portal' },
-    { s: 'Tome of Town Portal' },
-    { s: 'Raven', c: 'dru' },
-    { s: 'Poison Creeper', c: 'dru' },
-    { s: 'Werewolf', c: 'dru' },
-    { s: 'Lycanthropy', c: 'dru' },
-    { s: 'Firestorm', c: 'dru' },
-    { s: 'Oak Sage', c: 'dru' },
-    { s: 'Summon Spirit Wolf', c: 'dru' },
-    { s: 'Werebear', c: 'dru' },
-    { s: 'Molten Boulder', c: 'dru' },
-    { s: 'Arctic Blast', c: 'dru' },
-    { s: 'Carrion Vine', c: 'dru' },
-    { s: 'Feral Rage', c: 'dru' },
-    { s: 'Maul', c: 'dru' },
-    { s: 'Fissure', c: 'dru' },
-    { s: 'Cyclone Armor', c: 'dru' },
-    { s: 'Heart of Wolverine', c: 'dru' },
-    { s: 'Summon Dire Wolf', c: 'dru' },
-    { s: 'Rabies', c: 'dru' },
-    { s: 'Fire Claws', c: 'dru' },
-    { s: 'Twister', c: 'dru' },
-    { s: 'Solar Creeper', c: 'dru' },
-    { s: 'Hunger', c: 'dru' },
-    { s: 'Shock Wave', c: 'dru' },
-    { s: 'Volcano', c: 'dru' },
-    { s: 'Tornado', c: 'dru' },
-    { s: 'Spirit of Barbs', c: 'dru' },
-    { s: 'Summon Grizzly', c: 'dru' },
-    { s: 'Fury', c: 'dru' },
-    { s: 'Armageddon', c: 'dru' },
-    { s: 'Hurricane', c: 'dru' },
-    { s: 'Fire Blast', c: 'ass' },
-    { s: 'Claw Mastery', c: 'ass' },
-    { s: 'Psychic Hammer', c: 'ass' },
-    { s: 'Tiger Strike', c: 'ass' },
-    { s: 'Dragon Talon', c: 'ass' },
-    { s: 'Shock Web', c: 'ass' },
-    { s: 'Blade Sentinel', c: 'ass' },
-    { s: 'Burst of Speed', c: 'ass' },
-    { s: 'Fists of Fire', c: 'ass' },
-    { s: 'Dragon Claw', c: 'ass' },
-    { s: 'Charged Bolt Sentry', c: 'ass' },
-    { s: 'Wake of Fire', c: 'ass' },
-    { s: 'Weapon Block', c: 'ass' },
-    { s: 'Cloak of Shadows', c: 'ass' },
-    { s: 'Cobra Strike', c: 'ass' },
-    { s: 'Blade Fury', c: 'ass' },
-    { s: 'Fade', c: 'ass' },
-    { s: 'Shadow Warrior', c: 'ass' },
-    { s: 'Claws of Thunder', c: 'ass' },
-    { s: 'Dragon Tail', c: 'ass' },
-    { s: 'Lightning Sentry', c: 'ass' },
-    { s: 'Wake of Inferno', c: 'ass' },
-    { s: 'Mind Blast', c: 'ass' },
-    { s: 'Blades of Ice', c: 'ass' },
-    { s: 'Dragon Flight', c: 'ass' },
-    { s: 'Death Sentry', c: 'ass' },
-    { s: 'Blade Shield', c: 'ass' },
-    { s: 'Venom', c: 'ass' },
-    { s: 'Shadow Master', c: 'ass' },
-    { s: 'Phoenix Strike', c: 'ass' },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    { s: 'Delirium' },
+    {
+        "s": "Attack"
+    },
+    {
+        "s": "Kick"
+    },
+    {
+        "s": "Throw"
+    },
+    {
+        "s": "Unsummon"
+    },
+    {
+        "s": "Left Hand Throw"
+    },
+    {
+        "s": "Left Hand Swing"
+    },
+    {
+        "s": "Magic Arrow",
+        "c": "ama"
+    },
+    {
+        "s": "Fire Arrow",
+        "c": "ama"
+    },
+    {
+        "s": "Inner Sight",
+        "c": "ama"
+    },
+    {
+        "s": "Critical Strike",
+        "c": "ama"
+    },
+    {
+        "s": "Jab",
+        "c": "ama"
+    },
+    {
+        "s": "Cold Arrow",
+        "c": "ama"
+    },
+    {
+        "s": "Multiple Shot",
+        "c": "ama"
+    },
+    {
+        "s": "Dodge",
+        "c": "ama"
+    },
+    {
+        "s": "Power Strike",
+        "c": "ama"
+    },
+    {
+        "s": "Poison Javelin",
+        "c": "ama"
+    },
+    {
+        "s": "Exploding Arrow",
+        "c": "ama"
+    },
+    {
+        "s": "Slow Missiles",
+        "c": "ama"
+    },
+    {
+        "s": "Avoid",
+        "c": "ama"
+    },
+    {
+        "s": "Impale",
+        "c": "ama"
+    },
+    {
+        "s": "Lightning Bolt",
+        "c": "ama"
+    },
+    {
+        "s": "Ice Arrow",
+        "c": "ama"
+    },
+    {
+        "s": "Guided Arrow",
+        "c": "ama"
+    },
+    {
+        "s": "Penetrate",
+        "c": "ama"
+    },
+    {
+        "s": "Charged Strike",
+        "c": "ama"
+    },
+    {
+        "s": "Plague Javelin",
+        "c": "ama"
+    },
+    {
+        "s": "Strafe",
+        "c": "ama"
+    },
+    {
+        "s": "Immolation Arrow",
+        "c": "ama"
+    },
+    {
+        "s": "Decoy",
+        "c": "ama"
+    },
+    {
+        "s": "Evade",
+        "c": "ama"
+    },
+    {
+        "s": "Fend",
+        "c": "ama"
+    },
+    {
+        "s": "Freezing Arrow",
+        "c": "ama"
+    },
+    {
+        "s": "Valkyrie",
+        "c": "ama"
+    },
+    {
+        "s": "Pierce",
+        "c": "ama"
+    },
+    {
+        "s": "Lightning Strike",
+        "c": "ama"
+    },
+    {
+        "s": "Lightning Fury",
+        "c": "ama"
+    },
+    {
+        "s": "Fire Bolt",
+        "c": "sor"
+    },
+    {
+        "s": "Warmth",
+        "c": "sor"
+    },
+    {
+        "s": "Charged Bolt",
+        "c": "sor"
+    },
+    {
+        "s": "Ice Bolt",
+        "c": "sor"
+    },
+    {
+        "s": "Frozen Armor",
+        "c": "sor"
+    },
+    {
+        "s": "Inferno",
+        "c": "sor"
+    },
+    {
+        "s": "Static Field",
+        "c": "sor"
+    },
+    {
+        "s": "Telekinesis",
+        "c": "sor"
+    },
+    {
+        "s": "Frost Nova",
+        "c": "sor"
+    },
+    {
+        "s": "Ice Blast",
+        "c": "sor"
+    },
+    {
+        "s": "Blaze",
+        "c": "sor"
+    },
+    {
+        "s": "Fire Ball",
+        "c": "sor"
+    },
+    {
+        "s": "Nova",
+        "c": "sor"
+    },
+    {
+        "s": "Lightning",
+        "c": "sor"
+    },
+    {
+        "s": "Shiver Armor",
+        "c": "sor"
+    },
+    {
+        "s": "Fire Wall",
+        "c": "sor"
+    },
+    {
+        "s": "Enchant",
+        "c": "sor"
+    },
+    {
+        "s": "Chain Lightning",
+        "c": "sor"
+    },
+    {
+        "s": "Teleport",
+        "c": "sor"
+    },
+    {
+        "s": "Glacial Spike",
+        "c": "sor"
+    },
+    {
+        "s": "Meteor",
+        "c": "sor"
+    },
+    {
+        "s": "Thunder Storm",
+        "c": "sor"
+    },
+    {
+        "s": "Energy Shield",
+        "c": "sor"
+    },
+    {
+        "s": "Blizzard",
+        "c": "sor"
+    },
+    {
+        "s": "Chilling Armor",
+        "c": "sor"
+    },
+    {
+        "s": "Fire Mastery",
+        "c": "sor"
+    },
+    {
+        "s": "Hydra",
+        "c": "sor"
+    },
+    {
+        "s": "Lightning Mastery",
+        "c": "sor"
+    },
+    {
+        "s": "Frozen Orb",
+        "c": "sor"
+    },
+    {
+        "s": "Cold Mastery",
+        "c": "sor"
+    },
+    {
+        "s": "Amplify Damage",
+        "c": "nec"
+    },
+    {
+        "s": "Teeth",
+        "c": "nec"
+    },
+    {
+        "s": "Bone Armor",
+        "c": "nec"
+    },
+    {
+        "s": "Skeleton Mastery",
+        "c": "nec"
+    },
+    {
+        "s": "Raise Skeleton",
+        "c": "nec"
+    },
+    {
+        "s": "Dim Vision",
+        "c": "nec"
+    },
+    {
+        "s": "Weaken",
+        "c": "nec"
+    },
+    {
+        "s": "Poison Dagger",
+        "c": "nec"
+    },
+    {
+        "s": "Corpse Explosion",
+        "c": "nec"
+    },
+    {
+        "s": "Clay Golem",
+        "c": "nec"
+    },
+    {
+        "s": "Iron Maiden",
+        "c": "nec"
+    },
+    {
+        "s": "Terror",
+        "c": "nec"
+    },
+    {
+        "s": "Bone Wall",
+        "c": "nec"
+    },
+    {
+        "s": "Golem Mastery",
+        "c": "nec"
+    },
+    {
+        "s": "Raise Skeletal Mage",
+        "c": "nec"
+    },
+    {
+        "s": "Confuse",
+        "c": "nec"
+    },
+    {
+        "s": "Life Tap",
+        "c": "nec"
+    },
+    {
+        "s": "Poison Explosion",
+        "c": "nec"
+    },
+    {
+        "s": "Bone Spear",
+        "c": "nec"
+    },
+    {
+        "s": "Blood Golem",
+        "c": "nec"
+    },
+    {
+        "s": "Attract",
+        "c": "nec"
+    },
+    {
+        "s": "Decrepify",
+        "c": "nec"
+    },
+    {
+        "s": "Bone Prison",
+        "c": "nec"
+    },
+    {
+        "s": "Summon Resist",
+        "c": "nec"
+    },
+    {
+        "s": "Iron Golem",
+        "c": "nec"
+    },
+    {
+        "s": "Lower Resist",
+        "c": "nec"
+    },
+    {
+        "s": "Poison Nova",
+        "c": "nec"
+    },
+    {
+        "s": "Bone Spirit",
+        "c": "nec"
+    },
+    {
+        "s": "Fire Golem",
+        "c": "nec"
+    },
+    {
+        "s": "Revive",
+        "c": "nec"
+    },
+    {
+        "s": "Sacrifice",
+        "c": "pal"
+    },
+    {
+        "s": "Smite",
+        "c": "pal"
+    },
+    {
+        "s": "Might",
+        "c": "pal"
+    },
+    {
+        "s": "Prayer",
+        "c": "pal"
+    },
+    {
+        "s": "Resist Fire",
+        "c": "pal"
+    },
+    {
+        "s": "Holy Bolt",
+        "c": "pal"
+    },
+    {
+        "s": "Holy Fire",
+        "c": "pal"
+    },
+    {
+        "s": "Thorns",
+        "c": "pal"
+    },
+    {
+        "s": "Defiance",
+        "c": "pal"
+    },
+    {
+        "s": "Resist Cold",
+        "c": "pal"
+    },
+    {
+        "s": "Zeal",
+        "c": "pal"
+    },
+    {
+        "s": "Charge",
+        "c": "pal"
+    },
+    {
+        "s": "Blessed Aim",
+        "c": "pal"
+    },
+    {
+        "s": "Cleansing",
+        "c": "pal"
+    },
+    {
+        "s": "Resist Lightning",
+        "c": "pal"
+    },
+    {
+        "s": "Vengeance",
+        "c": "pal"
+    },
+    {
+        "s": "Blessed Hammer",
+        "c": "pal"
+    },
+    {
+        "s": "Concentration",
+        "c": "pal"
+    },
+    {
+        "s": "Holy Freeze",
+        "c": "pal"
+    },
+    {
+        "s": "Vigor",
+        "c": "pal"
+    },
+    {
+        "s": "Conversion",
+        "c": "pal"
+    },
+    {
+        "s": "Holy Shield",
+        "c": "pal"
+    },
+    {
+        "s": "Holy Shock",
+        "c": "pal"
+    },
+    {
+        "s": "Sanctuary",
+        "c": "pal"
+    },
+    {
+        "s": "Meditation",
+        "c": "pal"
+    },
+    {
+        "s": "Fist of the Heavens",
+        "c": "pal"
+    },
+    {
+        "s": "Fanaticism",
+        "c": "pal"
+    },
+    {
+        "s": "Conviction",
+        "c": "pal"
+    },
+    {
+        "s": "Redemption",
+        "c": "pal"
+    },
+    {
+        "s": "Salvation",
+        "c": "pal"
+    },
+    {
+        "s": "Bash",
+        "c": "bar"
+    },
+    {
+        "s": "Blade Mastery",
+        "c": "bar"
+    },
+    {
+        "s": "Axe Mastery",
+        "c": "bar"
+    },
+    {
+        "s": "Mace Mastery",
+        "c": "bar"
+    },
+    {
+        "s": "Howl",
+        "c": "bar"
+    },
+    {
+        "s": "Find Potion",
+        "c": "bar"
+    },
+    {
+        "s": "Leap",
+        "c": "bar"
+    },
+    {
+        "s": "Double Swing",
+        "c": "bar"
+    },
+    {
+        "s": "Polearm Mastery",
+        "c": "bar"
+    },
+    {
+        "s": "Throwing Mastery",
+        "c": "bar"
+    },
+    {
+        "s": "Spear Mastery",
+        "c": "bar"
+    },
+    {
+        "s": "Taunt",
+        "c": "bar"
+    },
+    {
+        "s": "Shout",
+        "c": "bar"
+    },
+    {
+        "s": "Stun",
+        "c": "bar"
+    },
+    {
+        "s": "Double Throw",
+        "c": "bar"
+    },
+    {
+        "s": "Increased Stamina",
+        "c": "bar"
+    },
+    {
+        "s": "Find Item",
+        "c": "bar"
+    },
+    {
+        "s": "Leap Attack",
+        "c": "bar"
+    },
+    {
+        "s": "Concentrate",
+        "c": "bar"
+    },
+    {
+        "s": "Iron Skin",
+        "c": "bar"
+    },
+    {
+        "s": "Battle Cry",
+        "c": "bar"
+    },
+    {
+        "s": "Frenzy",
+        "c": "bar"
+    },
+    {
+        "s": "Increased Speed",
+        "c": "bar"
+    },
+    {
+        "s": "Battle Orders",
+        "c": "bar"
+    },
+    {
+        "s": "Grim Ward",
+        "c": "bar"
+    },
+    {
+        "s": "Whirlwind",
+        "c": "bar"
+    },
+    {
+        "s": "Berserk",
+        "c": "bar"
+    },
+    {
+        "s": "Natural Resistance",
+        "c": "bar"
+    },
+    {
+        "s": "War Cry",
+        "c": "bar"
+    },
+    {
+        "s": "Battle Command",
+        "c": "bar"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+        "s": "Firestorm"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+        "s": "Scroll of Identify"
+    },
+    {
+        "s": "Tome of Identify"
+    },
+    {
+        "s": "Scroll of Town Portal"
+    },
+    {
+        "s": "Tome of Town Portal"
+    },
+    {
+        "s": "Raven",
+        "c": "dru"
+    },
+    {
+        "s": "Poison Creeper",
+        "c": "dru"
+    },
+    {
+        "s": "Werewolf",
+        "c": "dru"
+    },
+    {
+        "s": "Lycanthropy",
+        "c": "dru"
+    },
+    {
+        "s": "Firestorm",
+        "c": "dru"
+    },
+    {
+        "s": "Oak Sage",
+        "c": "dru"
+    },
+    {
+        "s": "Summon Spirit Wolf",
+        "c": "dru"
+    },
+    {
+        "s": "Werebear",
+        "c": "dru"
+    },
+    {
+        "s": "Molten Boulder",
+        "c": "dru"
+    },
+    {
+        "s": "Arctic Blast",
+        "c": "dru"
+    },
+    {
+        "s": "Carrion Vine",
+        "c": "dru"
+    },
+    {
+        "s": "Feral Rage",
+        "c": "dru"
+    },
+    {
+        "s": "Maul",
+        "c": "dru"
+    },
+    {
+        "s": "Fissure",
+        "c": "dru"
+    },
+    {
+        "s": "Cyclone Armor",
+        "c": "dru"
+    },
+    {
+        "s": "Heart of Wolverine",
+        "c": "dru"
+    },
+    {
+        "s": "Summon Dire Wolf",
+        "c": "dru"
+    },
+    {
+        "s": "Rabies",
+        "c": "dru"
+    },
+    {
+        "s": "Fire Claws",
+        "c": "dru"
+    },
+    {
+        "s": "Twister",
+        "c": "dru"
+    },
+    {
+        "s": "Solar Creeper",
+        "c": "dru"
+    },
+    {
+        "s": "Hunger",
+        "c": "dru"
+    },
+    {
+        "s": "Shock Wave",
+        "c": "dru"
+    },
+    {
+        "s": "Volcano",
+        "c": "dru"
+    },
+    {
+        "s": "Tornado",
+        "c": "dru"
+    },
+    {
+        "s": "Spirit of Barbs",
+        "c": "dru"
+    },
+    {
+        "s": "Summon Grizzly",
+        "c": "dru"
+    },
+    {
+        "s": "Fury",
+        "c": "dru"
+    },
+    {
+        "s": "Armageddon",
+        "c": "dru"
+    },
+    {
+        "s": "Hurricane",
+        "c": "dru"
+    },
+    {
+        "s": "Fire Blast",
+        "c": "ass"
+    },
+    {
+        "s": "Claw Mastery",
+        "c": "ass"
+    },
+    {
+        "s": "Psychic Hammer",
+        "c": "ass"
+    },
+    {
+        "s": "Tiger Strike",
+        "c": "ass"
+    },
+    {
+        "s": "Dragon Talon",
+        "c": "ass"
+    },
+    {
+        "s": "Shock Web",
+        "c": "ass"
+    },
+    {
+        "s": "Blade Sentinel",
+        "c": "ass"
+    },
+    {
+        "s": "Burst of Speed",
+        "c": "ass"
+    },
+    {
+        "s": "Fists of Fire",
+        "c": "ass"
+    },
+    {
+        "s": "Dragon Claw",
+        "c": "ass"
+    },
+    {
+        "s": "Charged Bolt Sentry",
+        "c": "ass"
+    },
+    {
+        "s": "Wake of Fire",
+        "c": "ass"
+    },
+    {
+        "s": "Weapon Block",
+        "c": "ass"
+    },
+    {
+        "s": "Cloak of Shadows",
+        "c": "ass"
+    },
+    {
+        "s": "Cobra Strike",
+        "c": "ass"
+    },
+    {
+        "s": "Blade Fury",
+        "c": "ass"
+    },
+    {
+        "s": "Fade",
+        "c": "ass"
+    },
+    {
+        "s": "Shadow Warrior",
+        "c": "ass"
+    },
+    {
+        "s": "Claws of Thunder",
+        "c": "ass"
+    },
+    {
+        "s": "Dragon Tail",
+        "c": "ass"
+    },
+    {
+        "s": "Lightning Sentry",
+        "c": "ass"
+    },
+    {
+        "s": "Wake of Inferno",
+        "c": "ass"
+    },
+    {
+        "s": "Mind Blast",
+        "c": "ass"
+    },
+    {
+        "s": "Blades of Ice",
+        "c": "ass"
+    },
+    {
+        "s": "Dragon Flight",
+        "c": "ass"
+    },
+    {
+        "s": "Death Sentry",
+        "c": "ass"
+    },
+    {
+        "s": "Blade Shield",
+        "c": "ass"
+    },
+    {
+        "s": "Venom",
+        "c": "ass"
+    },
+    {
+        "s": "Shadow Master",
+        "c": "ass"
+    },
+    {
+        "s": "Phoenix Strike",
+        "c": "ass"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+        "s": "Delirium"
+    },
     null,
     null,
     null,
@@ -433,7 +1087,9 @@ export let constants = {
     null,
     {},
     {},
-    { s: 'Scroll of Town Portal' },
+    {
+        "s": "Scroll of Town Portal"
+    },
     {},
     {},
     {},
@@ -445,126 +1101,144 @@ export let constants = {
     null,
     null,
     {},
-    { s: 'Mark of the Bear' },
-    { s: 'Mark of the Wolf' },
-    { s: 'Summon Goatman', c: 'war' },
     {
-      s: 'Demonic Mastery',
-      c: 'war',
+        "s": "Mark of the Bear"
     },
     {
-      s: 'Death Mark',
-      c: 'war',
+        "s": "Mark of the Wolf"
     },
     {
-      s: 'Summon Tainted',
-      c: 'war',
+        "s": "Summon Goatman",
+        "c": "war"
     },
     {
-      s: 'Summon Defiler',
-      c: 'war',
+        "s": "Demonic Mastery",
+        "c": "war"
     },
     {
-      s: 'Blood Oath',
-      c: 'war',
+        "s": "Death Mark",
+        "c": "war"
     },
     {
-      s: 'Engorge',
-      c: 'war',
+        "s": "Summon Tainted",
+        "c": "war"
     },
     {
-      s: 'Blood Boil',
-      c: 'war',
+        "s": "Summon Defiler",
+        "c": "war"
     },
     {
-      s: 'Consume',
-      c: 'war',
+        "s": "Blood Oath",
+        "c": "war"
     },
     {
-      s: 'Bind Demon',
-      c: 'war',
+        "s": "Engorge",
+        "c": "war"
     },
     {
-      s: 'Levitate',
-      c: 'war',
+        "s": "Blood Boil",
+        "c": "war"
     },
     {
-      s: 'Eldritch Blast',
-      c: 'war',
+        "s": "Consume",
+        "c": "war"
     },
     {
-      s: 'Hex Bane',
-      c: 'war',
+        "s": "Bind Demon",
+        "c": "war"
     },
     {
-      s: 'Hex Siphon',
-      c: 'war',
+        "s": "Levitation Mastery",
+        "c": "war"
     },
     {
-      s: 'Psychic Ward',
-      c: 'war',
+        "s": "Eldritch Blast",
+        "c": "war"
     },
     {
-      s: 'Echoing Strike',
-      c: 'war',
+        "s": "Hex Bane",
+        "c": "war"
     },
     {
-      s: 'Hex Purge',
-      c: 'war',
+        "s": "Hex Siphon",
+        "c": "war"
     },
     {
-      s: 'Blade Warp',
-      c: 'war',
+        "s": "Psychic Ward",
+        "c": "war"
     },
     {
-      s: 'Cleave',
-      c: 'war',
+        "s": "Echoing Strike",
+        "c": "war"
     },
     {
-      s: 'Mirrored Blades',
-      c: 'war',
+        "s": "Hex Purge",
+        "c": "war"
     },
     {
-      s: 'Sigil Lethargy',
-      c: 'war',
+        "s": "Blade Warp",
+        "c": "war"
     },
     {
-      s: 'Ring of Fire',
-      c: 'war',
+        "s": "Cleave",
+        "c": "war"
     },
     {
-      s: 'Miasma Bolt',
-      c: 'war',
+        "s": "Mirrored Blades",
+        "c": "war"
     },
     {
-      s: 'Sigil Rancor',
-      c: 'war',
+        "s": "Sigil Lethargy",
+        "c": "war"
     },
     {
-      s: 'Enhanced Entropy',
-      c: 'war',
+        "s": "Ring of Fire",
+        "c": "war"
     },
     {
-      s: 'Flame Wave',
-      c: 'war',
+        "s": "Miasma Bolt",
+        "c": "war"
     },
     {
-      s: 'Miasma Chains',
-      c: 'war',
+        "s": "Sigil Rancor",
+        "c": "war"
     },
     {
-      s: 'Sigil Death',
-      c: 'war',
+        "s": "Enhanced Entropy",
+        "c": "war"
     },
     {
-      s: 'Apocalypse',
-      c: 'war',
+        "s": "Flame Wave",
+        "c": "war"
     },
     {
-      s: 'Abyss',
-      c: 'war',
+        "s": "Miasma Chains",
+        "c": "war"
     },
-  ],
+    {
+        "s": "Sigil Death",
+        "c": "war"
+    },
+    {
+        "s": "Apocalypse",
+        "c": "war"
+    },
+    {
+        "s": "Abyss",
+        "c": "war"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+        "s": "Town Portal"
+    }
+],
   rare_names: [
     null,
     { n: 'Bite' },
@@ -772,676 +1446,2392 @@ export let constants = {
   magic_prefixes: [
     null,
     {},
-    { n: 'Sturdy' },
-    { n: 'Strong' },
-    { n: 'Glorious' },
-    { n: 'Blessed' },
-    { n: 'Saintly', tc: 'dgld' },
-    { n: 'Holy', tc: 'dgld' },
-    { n: 'Devious', tc: 'dblu' },
-    { n: 'Fortified', tc: 'dblu' },
+    {
+        "n": "Sturdy"
+    },
+    {
+        "n": "Strong"
+    },
+    {
+        "n": "Glorious"
+    },
+    {
+        "n": "Blessed"
+    },
+    {
+        "n": "Saintly",
+        "tc": "dgld"
+    },
+    {
+        "n": "Holy",
+        "tc": "dgld"
+    },
+    {
+        "n": "Devious",
+        "tc": "dblu"
+    },
+    {
+        "n": "Fortified",
+        "tc": "dblu"
+    },
     {},
     {},
     {},
-    { n: 'Jagged' },
-    { n: 'Deadly' },
-    { n: 'Vicious' },
-    { n: 'Brutal' },
-    { n: 'Massive', tc: 'dgld' },
-    { n: 'Savage', tc: 'dgld' },
-    { n: 'Merciless', tc: 'dgld' },
-    { n: 'Vulpine', tc: 'cblu' },
+    {
+        "n": "Jagged"
+    },
+    {
+        "n": "Deadly"
+    },
+    {
+        "n": "Vicious"
+    },
+    {
+        "n": "Brutal"
+    },
+    {
+        "n": "Massive",
+        "tc": "dgld"
+    },
+    {
+        "n": "Savage",
+        "tc": "dgld"
+    },
+    {
+        "n": "Merciless",
+        "tc": "dgld"
+    },
+    {
+        "n": "Vulpine",
+        "tc": "cblu"
+    },
     {},
     {},
     {},
     {},
-    { n: 'Tireless' },
-    { n: 'Rugged' },
-    { n: 'Bronze' },
-    { n: 'Iron' },
-    { n: 'Steel' },
-    { n: 'Silver' },
+    {
+        "n": "Tireless"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Iron"
+    },
+    {
+        "n": "Steel"
+    },
+    {
+        "n": "Silver"
+    },
     {},
-    { n: 'Gold', tc: 'lgld' },
-    { n: 'Platinum', tc: 'lgld' },
-    { n: 'Meteoric', tc: 'lgld' },
-    { n: 'Sharp' },
-    { n: 'Fine' },
-    { n: "Warrior's" },
-    { n: "Soldier's" },
-    { n: "Knight's", tc: 'dgld' },
-    { n: "Lord's", tc: 'dgld' },
-    { n: "King's", tc: 'dgld' },
-    { n: 'Howling', tc: 'oran' },
-    { n: 'Fortuitous' },
-    {},
-    {},
-    {},
-    {},
-    {},
-    { n: 'Glimmering' },
-    { n: 'Glowing', tc: 'lyel' },
-    {},
-    {},
-    { n: "Lizard's" },
-    {},
-    { n: "Snake's" },
-    { n: "Serpent's" },
-    { n: "Serpent's" },
-    { n: "Drake's", tc: 'cblu' },
-    { n: "Dragon's", tc: 'cblu' },
-    { n: "Dragon's", tc: 'cblu' },
-    { n: "Wyrm's", tc: 'cblu' },
-    {},
-    {},
-    { n: 'Prismatic', tc: 'lpur' },
-    { n: 'Prismatic', tc: 'lpur' },
-    { n: 'Azure' },
-    { n: 'Lapis' },
-    { n: 'Lapis' },
-    { n: 'Cobalt' },
-    { n: 'Cobalt' },
-    {},
-    { n: 'Sapphire', tc: 'lblu' },
-    {},
-    {},
-    { n: 'Crimson' },
-    { n: 'Burgundy' },
-    { n: 'Burgundy' },
-    { n: 'Garnet' },
-    { n: 'Garnet' },
-    {},
-    { n: 'Ruby', tc: 'lred' },
-    {},
-    {},
-    { n: 'Ocher' },
-    { n: 'Tangerine' },
-    { n: 'Tangerine' },
-    { n: 'Coral' },
-    { n: 'Coral' },
-    {},
-    { n: 'Amber', tc: 'lyel' },
+    {
+        "n": "Gold",
+        "tc": "lgld"
+    },
+    {
+        "n": "Platinum",
+        "tc": "lgld"
+    },
+    {
+        "n": "Meteoric",
+        "tc": "lgld"
+    },
+    {
+        "n": "Sharp"
+    },
+    {
+        "n": "Fine"
+    },
+    {
+        "n": "Warrior's"
+    },
+    {
+        "n": "Soldier's"
+    },
+    {
+        "n": "Knight's",
+        "tc": "dgld"
+    },
+    {
+        "n": "Lord's",
+        "tc": "dgld"
+    },
+    {
+        "n": "King's",
+        "tc": "dgld"
+    },
+    {
+        "n": "Howling",
+        "tc": "oran"
+    },
+    {
+        "n": "Fortuitous"
+    },
     {},
     {},
-    { n: 'Beryl' },
-    { n: 'Jade' },
-    { n: 'Jade' },
-    { n: 'Viridian' },
-    { n: 'Viridian' },
-    {},
-    { n: 'Emerald', tc: 'lgrn' },
-    {},
-    { n: "Fletcher's" },
-    { n: "Archer's", tc: 'cgrn' },
-    { n: "Archer's", tc: 'cgrn' },
-    { n: "Monk's" },
-    { n: "Priest's", tc: 'cgrn' },
-    { n: "Priest's", tc: 'cgrn' },
-    { n: "Summoner's" },
-    { n: "Necromancer's", tc: 'cgrn' },
-    { n: "Necromancer's", tc: 'cgrn' },
-    { n: "Angel's" },
-    { n: "Arch-Angel's", tc: 'cgrn' },
-    { n: "Arch-Angel's", tc: 'cgrn' },
-    { n: "Slayer's" },
-    { n: "Berserker's", tc: 'cgrn' },
-    { n: "Berserker's", tc: 'cgrn' },
     {},
     {},
-    { n: 'Triumphant' },
-    { n: 'Stout' },
-    { n: 'Stout' },
-    { n: 'Stout' },
-    { n: 'Burly' },
-    { n: 'Burly' },
-    { n: 'Burly' },
-    { n: 'Stalwart' },
-    { n: 'Stalwart' },
-    { n: 'Stalwart' },
-    { n: 'Stout' },
-    { n: 'Stout' },
-    { n: 'Stout' },
-    { n: 'Burly' },
-    { n: 'Burly' },
-    { n: 'Stalwart' },
-    { n: 'Stalwart' },
-    { n: 'Stout' },
-    { n: 'Stout' },
-    { n: 'Burly' },
-    { n: 'Stalwart' },
-    { n: 'Blanched', tc: 'whit' },
-    { n: 'Eburine', tc: 'whit' },
-    { n: 'Bone', tc: 'whit' },
-    { n: 'Ivory', tc: 'whit' },
-    { n: 'Sturdy' },
-    { n: 'Sturdy' },
-    { n: 'Strong' },
-    { n: 'Glorious' },
-    { n: 'Blessed' },
-    { n: 'Saintly', tc: 'dgld' },
-    { n: 'Holy', tc: 'dgld' },
-    { n: 'Godly', tc: 'dgld' },
-    { n: 'Devious' },
-    { n: 'Void' },
-    { n: 'Null', tc: 'dblu' },
-    { n: 'Antimagic', tc: 'dblu' },
-    { n: 'Red' },
-    { n: 'Red' },
-    { n: 'Sanguinary' },
-    { n: 'Sanguinary' },
-    { n: 'Bloody' },
-    { n: 'Red', tc: 'dred' },
-    { n: 'Sanguinary', tc: 'dred' },
-    { n: 'Bloody', tc: 'dred' },
-    { n: 'Red', tc: 'dred' },
-    { n: 'Sanguinary', tc: 'dred' },
-    { n: 'Bloody', tc: 'dred' },
-    { n: 'Scarlet', tc: 'dred' },
-    { n: 'Crimson', tc: 'dred' },
-    { n: 'Jagged' },
-    { n: 'Jagged' },
-    { n: 'Jagged' },
-    { n: 'Forked' },
-    { n: 'Forked' },
-    { n: 'Serrated' },
-    { n: 'Serrated' },
-    { n: 'Jagged', tc: 'blac' },
-    { n: 'Jagged', tc: 'blac' },
-    { n: 'Forked', tc: 'blac' },
-    { n: 'Forked', tc: 'blac' },
-    { n: 'Serrated', tc: 'blac' },
-    { n: 'Jagged', tc: 'blac' },
-    { n: 'Forked', tc: 'blac' },
-    { n: 'Serrated', tc: 'blac' },
-    { n: 'Carbuncle', tc: 'dred' },
-    { n: 'Carmine', tc: 'dred' },
-    { n: 'Vermilion', tc: 'dred' },
-    { n: 'Jagged' },
-    { n: 'Deadly' },
-    { n: 'Vicious' },
-    { n: 'Brutal' },
-    { n: 'Massive', tc: 'dgld' },
-    { n: 'Savage', tc: 'dgld' },
-    { n: 'Merciless', tc: 'dgld' },
-    { n: 'Ferocious', tc: 'blac' },
-    { n: 'Cruel', tc: 'blac' },
-    { n: 'Cinnabar', tc: 'dred' },
-    { n: 'Rusty', tc: 'dred' },
-    { n: 'Realgar', tc: 'dred' },
-    { n: 'Ruby', tc: 'dred' },
-    { n: 'Vulpine', tc: 'cblu' },
-    { n: 'Dun' },
-    { n: 'Tireless' },
-    { n: 'Tireless' },
-    { n: 'Brown' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Rugged' },
-    { n: 'Vigorous' },
-    { n: 'Chestnut' },
-    { n: 'Maroon' },
-    { n: 'Bronze' },
-    { n: 'Bronze' },
-    { n: 'Bronze' },
-    { n: 'Iron' },
-    { n: 'Iron' },
-    { n: 'Iron' },
-    { n: 'Steel' },
-    { n: 'Steel' },
-    { n: 'Steel' },
-    { n: 'Bronze' },
-    { n: 'Bronze' },
-    { n: 'Bronze' },
-    { n: 'Iron' },
-    { n: 'Iron' },
-    { n: 'Steel' },
-    { n: 'Steel' },
-    { n: 'Bronze' },
-    { n: 'Bronze' },
-    { n: 'Iron' },
-    { n: 'Steel' },
-    { n: 'Bronze' },
-    { n: 'Iron' },
-    { n: 'Steel' },
-    { n: 'Silver' },
-    { n: 'Gold', tc: 'lgld' },
-    { n: 'Platinum', tc: 'lgld' },
-    { n: 'Meteoric', tc: 'lgld' },
-    { n: 'Strange', tc: 'lgld' },
-    { n: 'Weird', tc: 'lgld' },
-    { n: 'Nickel' },
-    { n: 'Tin' },
-    { n: 'Silver' },
-    { n: 'Argent' },
-    { n: 'Fine' },
-    { n: 'Fine' },
-    { n: 'Sharp' },
-    { n: 'Fine' },
-    { n: 'Sharp' },
-    { n: 'Fine' },
-    { n: 'Sharp' },
-    { n: 'Fine' },
-    { n: "Warrior's" },
-    { n: "Soldier's" },
-    { n: "Knight's", tc: 'dgld' },
-    { n: "Lord's", tc: 'dgld' },
-    { n: "King's", tc: 'dgld' },
-    { n: "Master's", tc: 'dgld' },
-    { n: "Grandmaster's", tc: 'dgld' },
-    { n: 'Glimmering' },
-    { n: 'Glowing', tc: 'lyel' },
-    { n: 'Bright' },
-    { n: 'Screaming', tc: 'oran' },
-    { n: 'Howling', tc: 'oran' },
-    { n: 'Wailing', tc: 'oran' },
-    { n: 'Screaming', tc: 'oran' },
-    { n: 'Howling', tc: 'oran' },
-    { n: 'Wailing', tc: 'oran' },
-    { n: 'Lucky' },
-    { n: 'Lucky' },
-    { n: 'Lucky' },
-    { n: 'Lucky' },
-    { n: 'Lucky' },
-    { n: 'Lucky' },
-    { n: 'Felicitous' },
-    { n: 'Fortuitous' },
-    { n: 'Emerald' },
-    { n: "Lizard's" },
-    { n: "Lizard's" },
-    { n: "Lizard's" },
-    { n: "Snake's" },
-    { n: "Snake's" },
-    { n: "Snake's" },
-    { n: "Serpent's" },
-    { n: "Serpent's" },
-    { n: "Serpent's" },
-    { n: "Lizard's" },
-    { n: "Lizard's" },
-    { n: "Lizard's" },
-    { n: "Snake's" },
-    { n: "Snake's" },
-    { n: "Serpent's" },
-    { n: "Serpent's" },
-    { n: "Lizard's" },
-    { n: "Lizard's" },
-    { n: "Snake's" },
-    { n: "Serpent's" },
-    { n: "Lizard's" },
-    { n: "Snake's" },
-    { n: "Serpent's" },
-    { n: "Serpent's" },
-    { n: "Drake's", tc: 'cblu' },
-    { n: "Dragon's", tc: 'cblu' },
-    { n: "Dragon's", tc: 'cblu' },
-    { n: "Wyrm's", tc: 'cblu' },
-    { n: "Great Wyrm's", tc: 'cblu' },
-    { n: "Bahamut's", tc: 'cblu' },
-    { n: 'Zircon', tc: 'cblu' },
-    { n: 'Jacinth', tc: 'cblu' },
-    { n: 'Turquoise', tc: 'cblu' },
-    { n: 'Shimmering' },
-    { n: 'Shimmering' },
-    { n: 'Shimmering' },
-    { n: 'Shimmering', tc: 'lpur' },
-    { n: 'Shimmering', tc: 'lpur' },
-    { n: 'Shimmering', tc: 'lpur' },
-    { n: 'Shimmering', tc: 'lpur' },
-    { n: 'Rainbow', tc: 'lpur' },
-    { n: 'Scintillating', tc: 'lpur' },
-    { n: 'Prismatic', tc: 'lpur' },
-    { n: 'Chromatic', tc: 'lpur' },
-    { n: 'Shimmering', tc: 'lpur' },
-    { n: 'Rainbow', tc: 'lpur' },
-    { n: 'Scintillating', tc: 'lpur' },
-    { n: 'Prismatic', tc: 'lpur' },
-    { n: 'Chromatic', tc: 'lpur' },
-    { n: 'Shimmering', tc: 'lpur' },
-    { n: 'Rainbow', tc: 'lpur' },
-    { n: 'Scintillating', tc: 'lpur' },
-    { n: 'Shimmering', tc: 'lpur' },
-    { n: 'Scintillating', tc: 'lpur' },
-    { n: 'Azure' },
-    { n: 'Lapis' },
-    { n: 'Cobalt' },
-    { n: 'Sapphire' },
-    { n: 'Azure' },
-    { n: 'Lapis' },
-    { n: 'Cobalt', tc: 'lblu' },
-    { n: 'Sapphire', tc: 'lblu' },
-    { n: 'Azure' },
-    { n: 'Lapis' },
-    { n: 'Cobalt', tc: 'lblu' },
-    { n: 'Sapphire', tc: 'lblu' },
-    { n: 'Azure' },
-    { n: 'Lapis' },
-    { n: 'Lapis' },
-    { n: 'Cobalt' },
-    { n: 'Cobalt' },
-    { n: 'Sapphire', tc: 'lblu' },
-    { n: 'Lapis Lazuli', tc: 'lblu' },
-    { n: 'Sapphire', tc: 'lblu' },
-    { n: 'Crimson' },
-    { n: 'Russet' },
-    { n: 'Garnet' },
-    { n: 'Ruby' },
-    { n: 'Crimson' },
-    { n: 'Russet' },
-    { n: 'Garnet', tc: 'lred' },
-    { n: 'Ruby', tc: 'lred' },
-    { n: 'Crimson' },
-    { n: 'Russet', tc: 'lred' },
-    { n: 'Garnet', tc: 'lred' },
-    { n: 'Ruby' },
-    { n: 'Russet' },
-    { n: 'Russet' },
-    { n: 'Garnet' },
-    { n: 'Garnet' },
-    { n: 'Ruby', tc: 'lred' },
-    { n: 'Garnet', tc: 'lred' },
-    { n: 'Ruby', tc: 'lred' },
-    { n: 'Tangerine' },
-    { n: 'Ocher' },
-    { n: 'Coral' },
-    { n: 'Amber' },
-    { n: 'Tangerine' },
-    { n: 'Ocher' },
-    { n: 'Coral', tc: 'lyel' },
-    { n: 'Amber', tc: 'lyel' },
-    { n: 'Tangerine' },
-    { n: 'Ocher' },
-    { n: 'Coral', tc: 'lyel' },
-    { n: 'Amber', tc: 'lyel' },
-    { n: 'Tangerine' },
-    { n: 'Ocher' },
-    { n: 'Ocher' },
-    { n: 'Coral' },
-    { n: 'Coral' },
-    { n: 'Amber', tc: 'lyel' },
-    { n: 'Camphor', tc: 'lyel' },
-    { n: 'Ambergris', tc: 'lyel' },
-    { n: 'Beryl' },
-    { n: 'Viridian' },
-    { n: 'Jade' },
-    { n: 'Emerald' },
-    { n: 'Beryl' },
-    { n: 'Viridian' },
-    { n: 'Jade', tc: 'cgrn' },
-    { n: 'Emerald', tc: 'cgrn' },
-    { n: 'Beryl' },
-    { n: 'Viridian' },
-    { n: 'Jade', tc: 'cgrn' },
-    { n: 'Emerald', tc: 'cgrn' },
-    { n: 'Beryl' },
-    { n: 'Viridian' },
-    { n: 'Viridian' },
-    { n: 'Jade' },
-    { n: 'Jade' },
-    { n: 'Emerald', tc: 'cgrn' },
-    { n: 'Beryl', tc: 'cgrn' },
-    { n: 'Jade', tc: 'cgrn' },
-    { n: 'Triumphant' },
-    { n: 'Victorious' },
-    { n: 'Aureolic' },
-    { n: "Mechanic's" },
-    { n: "Artisan's" },
-    { n: "Jeweler's" },
-    { n: 'Lunar' },
-    { n: 'Arcadian' },
-    { n: 'Unearthly' },
-    { n: 'Astral' },
-    { n: 'Elysian', tc: 'dgld' },
-    { n: 'Celestial', tc: 'dgld' },
-    { n: 'Diamond' },
-    { n: "Fletcher's" },
-    { n: 'Acrobatic' },
-    { n: "Harpoonist's" },
-    { n: "Fletcher's" },
-    { n: "Bowyer's", tc: 'lgld' },
-    { n: "Archer's", tc: 'lgld' },
-    { n: 'Acrobatic' },
-    { n: 'Gymnastic', tc: 'lgld' },
-    { n: 'Athletic', tc: 'lgld' },
-    { n: "Harpoonist's" },
-    { n: "Spearmaiden's", tc: 'lgld' },
-    { n: "Lancer's", tc: 'lgld' },
-    { n: 'Burning' },
-    { n: 'Sparking' },
-    { n: 'Chilling' },
-    { n: 'Burning' },
-    { n: 'Blazing', tc: 'lgld' },
-    { n: 'Volcanic', tc: 'lgld' },
-    { n: 'Sparking' },
-    { n: 'Charged', tc: 'lgld' },
-    { n: 'Powered', tc: 'lgld' },
-    { n: 'Chilling' },
-    { n: 'Freezing', tc: 'lgld' },
-    { n: 'Glacial', tc: 'lgld' },
-    { n: 'Hexing' },
-    { n: 'Fungal' },
-    { n: "Graverobber's" },
-    { n: 'Hexing' },
-    { n: 'Blighting', tc: 'lgld' },
-    { n: 'Cursing', tc: 'lgld' },
-    { n: 'Fungal' },
-    { n: 'Noxious', tc: 'lgld' },
-    { n: 'Venomous', tc: 'lgld' },
-    { n: "Graverobber's" },
-    { n: 'Mojo', tc: 'lgld' },
-    { n: "Golemlord's", tc: 'lgld' },
-    { n: 'Lion Branded' },
-    { n: "Captain's" },
-    { n: "Preserver's" },
-    { n: 'Lion Branded' },
-    { n: 'Hawk Branded', tc: 'lgld' },
-    { n: 'Rose Branded', tc: 'lgld' },
-    { n: "Captain's" },
-    { n: "Commander's", tc: 'lgld' },
-    { n: "Marshal's", tc: 'lgld' },
-    { n: "Preserver's" },
-    { n: "Warden's", tc: 'lgld' },
-    { n: "Guardian's", tc: 'lgld' },
-    { n: "Expert's" },
-    { n: 'Fanatic' },
-    { n: 'Sounding' },
-    { n: "Expert's" },
-    { n: "Veteran's", tc: 'lgld' },
-    { n: "Master's", tc: 'lgld' },
-    { n: 'Fanatic' },
-    { n: 'Raging', tc: 'lgld' },
-    { n: 'Furious', tc: 'lgld' },
-    { n: 'Sounding' },
-    { n: 'Resonant', tc: 'lgld' },
-    { n: 'Echoing', tc: 'lgld' },
-    { n: "Trainer's" },
-    { n: 'Spiritual' },
-    { n: 'Natural' },
-    { n: "Trainer's" },
-    { n: "Caretaker's", tc: 'lgld' },
-    { n: "Keeper's", tc: 'lgld' },
-    { n: 'Spiritual' },
-    { n: 'Feral', tc: 'lgld' },
-    { n: 'Communal', tc: 'lgld' },
-    { n: 'Natural' },
-    { n: 'Terrene', tc: 'lgld' },
-    { n: 'Gaean', tc: 'lgld' },
-    { n: 'Entrapping' },
-    { n: "Mentalist's" },
-    { n: "Shogukusha's" },
-    { n: 'Entrapping' },
-    { n: "Trickster's", tc: 'lgld' },
-    { n: 'Cunning', tc: 'lgld' },
-    { n: "Mentalist's" },
-    { n: 'Psychic', tc: 'lgld' },
-    { n: 'Shadow', tc: 'lgld' },
-    { n: "Shogukusha's" },
-    { n: "Sensei's", tc: 'lgld' },
-    { n: "Kenshi's", tc: 'lgld' },
-    { n: 'Enlightened', tc: 'whit' },
-    { n: 'Enlightened', tc: 'whit' },
-    { n: 'Honorable', tc: 'whit' },
-    { n: 'Honorable', tc: 'whit' },
-    { n: 'Righteous', tc: 'whit' },
-    { n: 'Righteous', tc: 'whit' },
-    { n: 'Faithful', tc: 'whit' },
-    { n: 'Faithful', tc: 'whit' },
-    { n: "Knave's", tc: 'whit' },
-    { n: "Jack's", tc: 'whit' },
-    { n: "Jester's", tc: 'whit' },
-    { n: "Joker's", tc: 'whit' },
-    { n: "Fool's", tc: 'whit' },
-    { n: 'Alarming', tc: 'whit' },
-    { n: 'Calling', tc: 'whit' },
-    { n: 'Yelling', tc: 'whit' },
-    { n: 'Howling', tc: 'whit' },
-    { n: 'Grinding', tc: 'whit' },
-    { n: 'Paradox', tc: 'whit' },
-    { n: 'Paradox', tc: 'whit' },
-    { n: 'Robineye', tc: 'whit' },
-    { n: 'Sparroweye', tc: 'whit' },
-    { n: 'Falconeye', tc: 'whit' },
-    { n: 'Hawkeye', tc: 'whit' },
-    { n: 'Eagleeye', tc: 'whit' },
-    { n: 'Visionary', tc: 'whit' },
-    { n: 'Mnemonic', tc: 'cblu' },
-    { n: 'Snowy', tc: 'lblu' },
-    { n: 'Shivering', tc: 'lblu' },
-    { n: 'Boreal', tc: 'lblu' },
-    { n: 'Hibernal', tc: 'lblu' },
-    { n: 'Fiery', tc: 'dred' },
-    { n: 'Smoldering', tc: 'dred' },
-    { n: 'Smoking', tc: 'dred' },
-    { n: 'Flaming', tc: 'dred' },
-    { n: 'Condensing', tc: 'dred' },
-    { n: 'Static', tc: 'lyel' },
-    { n: 'Glowing', tc: 'lyel' },
-    { n: 'Buzzing', tc: 'lyel' },
-    { n: 'Arcing', tc: 'lyel' },
-    { n: 'Shocking', tc: 'lyel' },
-    { n: 'Septic', tc: 'dgrn' },
-    { n: 'Foul', tc: 'dgrn' },
-    { n: 'Corrosive', tc: 'dgrn' },
-    { n: 'Toxic', tc: 'dgrn' },
-    { n: 'Pestilent', tc: 'dgrn' },
-    { n: "Maiden's" },
-    { n: "Valkyrie's", tc: 'cgrn' },
-    { n: "Maiden's" },
-    { n: "Valkyrie's", tc: 'cgrn' },
-    { n: "Monk's" },
-    { n: "Priest's", tc: 'cgrn' },
-    { n: "Monk's" },
-    { n: "Priest's", tc: 'cgrn' },
-    { n: "Monk's" },
-    { n: "Priest's", tc: 'cgrn' },
-    { n: "Summoner's" },
-    { n: "Necromancer's", tc: 'cgrn' },
-    { n: "Summoner's" },
-    { n: "Necromancer's", tc: 'cgrn' },
-    { n: "Angel's" },
-    { n: "Arch-Angel's", tc: 'cgrn' },
-    { n: "Angel's" },
-    { n: "Arch-Angel's", tc: 'cgrn' },
-    { n: "Slayer's" },
-    { n: "Berserker's", tc: 'cgrn' },
-    { n: "Slayer's" },
-    { n: "Berserker's", tc: 'cgrn' },
-    { n: "Slayer's" },
-    { n: "Berserker's", tc: 'cgrn' },
-    { n: "Shaman's" },
-    { n: "Hierophant's", tc: 'cgrn' },
-    { n: "Shaman's" },
-    { n: "Hierophant's", tc: 'cgrn' },
-    { n: "Magekiller's" },
-    { n: "Witch-hunter's", tc: 'cgrn' },
-    { n: "Magekiller's" },
-    { n: "Witch-hunter's", tc: 'cgrn' },
-    { n: 'Compact' },
-    { n: 'Thin' },
-    { n: 'Dense' },
-    { n: 'Consecrated' },
-    { n: 'Pure', tc: 'lgld' },
-    { n: 'Sacred', tc: 'lgld' },
-    { n: 'Hallowed', tc: 'lgld' },
-    { n: 'Divine', tc: 'lgld' },
-    { n: 'Pearl' },
-    { n: 'Crimson' },
-    { n: 'Red' },
-    { n: 'Sanguinary' },
-    { n: 'Bloody' },
-    { n: 'Red', tc: 'dred' },
-    { n: 'Sanguinary', tc: 'dred' },
-    { n: 'Red', tc: 'dred' },
-    { n: 'Jagged' },
-    { n: 'Forked' },
-    { n: 'Serrated' },
-    { n: 'Jagged', tc: 'blac' },
-    { n: 'Forked', tc: 'blac' },
-    { n: 'Jagged', tc: 'blac' },
-    { n: 'Snowy' },
-    { n: 'Shivering' },
-    { n: 'Boreal' },
-    { n: 'Hibernal' },
-    { n: 'Snowy' },
-    { n: 'Shivering' },
-    { n: 'Boreal', tc: 'lblu' },
-    { n: 'Hibernal', tc: 'lblu' },
-    { n: 'Snowy' },
-    { n: 'Shivering' },
-    { n: 'Boreal', tc: 'lblu' },
-    { n: 'Hibernal', tc: 'lblu' },
-    { n: 'Fiery' },
-    { n: 'Smoldering' },
-    { n: 'Smoking' },
-    { n: 'Flaming' },
-    { n: 'Fiery' },
-    { n: 'Smoldering' },
-    { n: 'Smoking', tc: 'lred' },
-    { n: 'Flaming', tc: 'lred' },
-    { n: 'Fiery' },
-    { n: 'Smoldering' },
-    { n: 'Smoking', tc: 'lred' },
-    { n: 'Flaming', tc: 'lred' },
-    { n: 'Static' },
-    { n: 'Glowing' },
-    { n: 'Arcing' },
-    { n: 'Shocking' },
-    { n: 'Static' },
-    { n: 'Glowing' },
-    { n: 'Arcing', tc: 'whit' },
-    { n: 'Shocking', tc: 'whit' },
-    { n: 'Static' },
-    { n: 'Glowing' },
-    { n: 'Arcing', tc: 'whit' },
-    { n: 'Shocking', tc: 'whit' },
-    { n: 'Septic' },
-    { n: 'Foul' },
-    { n: 'Toxic' },
-    { n: 'Pestilent' },
-    { n: 'Septic' },
-    { n: 'Foul' },
-    { n: 'Toxic', tc: 'dgrn' },
-    { n: 'Pestilent', tc: 'dgrn' },
-    { n: 'Septic' },
-    { n: 'Foul' },
-    { n: 'Toxic', tc: 'dgrn' },
-    { n: 'Pestilent', tc: 'dgrn' },
-    { n: 'Tireless' },
-    { n: "Lizard's" },
-    { n: 'Azure' },
-    { n: 'Crimson' },
-    { n: 'Tangerine' },
-    { n: 'Beryl' },
-    { n: 'Godly', tc: 'dgld' },
-    { n: 'Cruel', tc: 'blac' },
     {},
-  ],
+    {
+        "n": "Glimmering"
+    },
+    {
+        "n": "Glowing",
+        "tc": "lyel"
+    },
+    {},
+    {},
+    {
+        "n": "Lizard's"
+    },
+    {},
+    {
+        "n": "Snake's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Drake's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Dragon's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Dragon's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Wyrm's",
+        "tc": "cblu"
+    },
+    {},
+    {},
+    {
+        "n": "Prismatic",
+        "tc": "lpur"
+    },
+    {
+        "n": "Prismatic",
+        "tc": "lpur"
+    },
+    {
+        "n": "Azure"
+    },
+    {
+        "n": "Lapis"
+    },
+    {
+        "n": "Lapis"
+    },
+    {
+        "n": "Cobalt"
+    },
+    {
+        "n": "Cobalt"
+    },
+    {},
+    {
+        "n": "Sapphire",
+        "tc": "lblu"
+    },
+    {},
+    {},
+    {
+        "n": "Crimson"
+    },
+    {
+        "n": "Burgundy"
+    },
+    {
+        "n": "Burgundy"
+    },
+    {
+        "n": "Garnet"
+    },
+    {
+        "n": "Garnet"
+    },
+    {},
+    {
+        "n": "Ruby",
+        "tc": "lred"
+    },
+    {},
+    {},
+    {
+        "n": "Ocher"
+    },
+    {
+        "n": "Tangerine"
+    },
+    {
+        "n": "Tangerine"
+    },
+    {
+        "n": "Coral"
+    },
+    {
+        "n": "Coral"
+    },
+    {},
+    {
+        "n": "Amber",
+        "tc": "lyel"
+    },
+    {},
+    {},
+    {
+        "n": "Beryl"
+    },
+    {
+        "n": "Jade"
+    },
+    {
+        "n": "Jade"
+    },
+    {
+        "n": "Viridian"
+    },
+    {
+        "n": "Viridian"
+    },
+    {},
+    {
+        "n": "Emerald",
+        "tc": "lgrn"
+    },
+    {},
+    {
+        "n": "Fletcher's"
+    },
+    {
+        "n": "Archer's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Archer's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Monk's"
+    },
+    {
+        "n": "Priest's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Priest's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Summoner's"
+    },
+    {
+        "n": "Necromancer's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Necromancer's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Angel's"
+    },
+    {
+        "n": "Arch-Angel's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Arch-Angel's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Slayer's"
+    },
+    {
+        "n": "Berserker's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Berserker's",
+        "tc": "cgrn"
+    },
+    {},
+    {},
+    {
+        "n": "Triumphant"
+    },
+    {
+        "n": "Stout"
+    },
+    {
+        "n": "Stout"
+    },
+    {
+        "n": "Stout"
+    },
+    {
+        "n": "Burly"
+    },
+    {
+        "n": "Burly"
+    },
+    {
+        "n": "Burly"
+    },
+    {
+        "n": "Stalwart"
+    },
+    {
+        "n": "Stalwart"
+    },
+    {
+        "n": "Stalwart"
+    },
+    {
+        "n": "Stout"
+    },
+    {
+        "n": "Stout"
+    },
+    {
+        "n": "Stout"
+    },
+    {
+        "n": "Burly"
+    },
+    {
+        "n": "Burly"
+    },
+    {
+        "n": "Stalwart"
+    },
+    {
+        "n": "Stalwart"
+    },
+    {
+        "n": "Stout"
+    },
+    {
+        "n": "Stout"
+    },
+    {
+        "n": "Burly"
+    },
+    {
+        "n": "Stalwart"
+    },
+    {
+        "n": "Blanched",
+        "tc": "whit"
+    },
+    {
+        "n": "Eburin",
+        "tc": "whit"
+    },
+    {
+        "n": "Bone",
+        "tc": "whit"
+    },
+    {
+        "n": "Ivory",
+        "tc": "whit"
+    },
+    {
+        "n": "Sturdy"
+    },
+    {
+        "n": "Sturdy"
+    },
+    {
+        "n": "Strong"
+    },
+    {
+        "n": "Glorious"
+    },
+    {
+        "n": "Blessed"
+    },
+    {
+        "n": "Saintly",
+        "tc": "dgld"
+    },
+    {
+        "n": "Holy",
+        "tc": "dgld"
+    },
+    {
+        "n": "Godly",
+        "tc": "dgld"
+    },
+    {
+        "n": "Devious"
+    },
+    {
+        "n": "Blank"
+    },
+    {
+        "tc": "dblu"
+    },
+    {
+        "n": "Antimagic",
+        "tc": "dblu"
+    },
+    {
+        "n": "Red"
+    },
+    {
+        "n": "Red"
+    },
+    {
+        "n": "Sanguinary"
+    },
+    {
+        "n": "Sanguinary"
+    },
+    {
+        "n": "Bloody"
+    },
+    {
+        "n": "Red",
+        "tc": "dred"
+    },
+    {
+        "n": "Sanguinary",
+        "tc": "dred"
+    },
+    {
+        "n": "Bloody",
+        "tc": "dred"
+    },
+    {
+        "n": "Red",
+        "tc": "dred"
+    },
+    {
+        "n": "Sanguinary",
+        "tc": "dred"
+    },
+    {
+        "n": "Bloody",
+        "tc": "dred"
+    },
+    {
+        "n": "Scarlet",
+        "tc": "dred"
+    },
+    {
+        "n": "Crimson",
+        "tc": "dred"
+    },
+    {
+        "n": "Jagged"
+    },
+    {
+        "n": "Jagged"
+    },
+    {
+        "n": "Jagged"
+    },
+    {
+        "n": "Forked"
+    },
+    {
+        "n": "Forked"
+    },
+    {
+        "n": "Serrated"
+    },
+    {
+        "n": "Serrated"
+    },
+    {
+        "n": "Jagged",
+        "tc": "blac"
+    },
+    {
+        "n": "Jagged",
+        "tc": "blac"
+    },
+    {
+        "n": "Forked",
+        "tc": "blac"
+    },
+    {
+        "n": "Forked",
+        "tc": "blac"
+    },
+    {
+        "n": "Serrated",
+        "tc": "blac"
+    },
+    {
+        "n": "Jagged",
+        "tc": "blac"
+    },
+    {
+        "n": "Forked",
+        "tc": "blac"
+    },
+    {
+        "n": "Serrated",
+        "tc": "blac"
+    },
+    {
+        "n": "Carbuncle",
+        "tc": "dred"
+    },
+    {
+        "n": "Carmine",
+        "tc": "dred"
+    },
+    {
+        "n": "Vermillion",
+        "tc": "dred"
+    },
+    {
+        "n": "Jagged"
+    },
+    {
+        "n": "Deadly"
+    },
+    {
+        "n": "Vicious"
+    },
+    {
+        "n": "Brutal"
+    },
+    {
+        "n": "Massive",
+        "tc": "dgld"
+    },
+    {
+        "n": "Savage",
+        "tc": "dgld"
+    },
+    {
+        "n": "Merciless",
+        "tc": "dgld"
+    },
+    {
+        "n": "Ferocious",
+        "tc": "blac"
+    },
+    {
+        "n": "Cruel",
+        "tc": "blac"
+    },
+    {
+        "n": "Cinnabar",
+        "tc": "dred"
+    },
+    {
+        "n": "Rusty",
+        "tc": "dred"
+    },
+    {
+        "n": "Realgar",
+        "tc": "dred"
+    },
+    {
+        "n": "Ruby",
+        "tc": "dred"
+    },
+    {
+        "n": "Vulpine",
+        "tc": "cblu"
+    },
+    {
+        "n": "Dun"
+    },
+    {
+        "n": "Tireless"
+    },
+    {
+        "n": "Tireless"
+    },
+    {
+        "n": "Brown"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Rugged"
+    },
+    {
+        "n": "Vigorous"
+    },
+    {
+        "n": "Chestnut"
+    },
+    {
+        "n": "Maroon"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Iron"
+    },
+    {
+        "n": "Iron"
+    },
+    {
+        "n": "Iron"
+    },
+    {
+        "n": "Steel"
+    },
+    {
+        "n": "Steel"
+    },
+    {
+        "n": "Steel"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Iron"
+    },
+    {
+        "n": "Iron"
+    },
+    {
+        "n": "Steel"
+    },
+    {
+        "n": "Steel"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Iron"
+    },
+    {
+        "n": "Steel"
+    },
+    {
+        "n": "Bronze"
+    },
+    {
+        "n": "Iron"
+    },
+    {
+        "n": "Steel"
+    },
+    {
+        "n": "Silver"
+    },
+    {
+        "n": "Gold",
+        "tc": "lgld"
+    },
+    {
+        "n": "Platinum",
+        "tc": "lgld"
+    },
+    {
+        "n": "Meteoric",
+        "tc": "lgld"
+    },
+    {
+        "n": "Strange",
+        "tc": "lgld"
+    },
+    {
+        "n": "Weird",
+        "tc": "lgld"
+    },
+    {
+        "n": "Nickel"
+    },
+    {
+        "n": "Tin"
+    },
+    {
+        "n": "Silver"
+    },
+    {
+        "n": "Argent"
+    },
+    {
+        "n": "Fine"
+    },
+    {
+        "n": "Fine"
+    },
+    {
+        "n": "Sharp"
+    },
+    {
+        "n": "Fine"
+    },
+    {
+        "n": "Sharp"
+    },
+    {
+        "n": "Fine"
+    },
+    {
+        "n": "Sharp"
+    },
+    {
+        "n": "Fine"
+    },
+    {
+        "n": "Warrior's"
+    },
+    {
+        "n": "Soldier's"
+    },
+    {
+        "n": "Knight's",
+        "tc": "dgld"
+    },
+    {
+        "n": "Lord's",
+        "tc": "dgld"
+    },
+    {
+        "n": "King's",
+        "tc": "dgld"
+    },
+    {
+        "n": "Master's",
+        "tc": "dgld"
+    },
+    {
+        "n": "Grandmaster's",
+        "tc": "dgld"
+    },
+    {
+        "n": "Glimmering"
+    },
+    {
+        "n": "Glowing",
+        "tc": "lyel"
+    },
+    {
+        "n": "Bright"
+    },
+    {
+        "n": "Screaming",
+        "tc": "oran"
+    },
+    {
+        "n": "Howling",
+        "tc": "oran"
+    },
+    {
+        "n": "Wailing",
+        "tc": "oran"
+    },
+    {
+        "n": "Screaming",
+        "tc": "oran"
+    },
+    {
+        "n": "Howling",
+        "tc": "oran"
+    },
+    {
+        "n": "Wailing",
+        "tc": "oran"
+    },
+    {
+        "n": "Lucky"
+    },
+    {
+        "n": "Lucky"
+    },
+    {
+        "n": "Lucky"
+    },
+    {
+        "n": "Lucky"
+    },
+    {
+        "n": "Lucky"
+    },
+    {
+        "n": "Lucky"
+    },
+    {
+        "n": "Felicitous"
+    },
+    {
+        "n": "Fortuitous"
+    },
+    {
+        "n": "Emerald"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Snake's"
+    },
+    {
+        "n": "Snake's"
+    },
+    {
+        "n": "Snake's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Snake's"
+    },
+    {
+        "n": "Snake's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Snake's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Snake's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Serpent's"
+    },
+    {
+        "n": "Drake's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Dragon's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Dragon's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Wyrm's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Great Wyrm's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Bahamut's",
+        "tc": "cblu"
+    },
+    {
+        "n": "Zircon",
+        "tc": "cblu"
+    },
+    {
+        "n": "Jacinth",
+        "tc": "cblu"
+    },
+    {
+        "n": "Turquoise",
+        "tc": "cblu"
+    },
+    {
+        "n": "Shimmering"
+    },
+    {
+        "n": "Shimmering"
+    },
+    {
+        "n": "Shimmering"
+    },
+    {
+        "n": "Shimmering",
+        "tc": "lpur"
+    },
+    {
+        "n": "Shimmering",
+        "tc": "lpur"
+    },
+    {
+        "n": "Shimmering",
+        "tc": "lpur"
+    },
+    {
+        "n": "Shimmering",
+        "tc": "lpur"
+    },
+    {
+        "n": "Rainbow",
+        "tc": "lpur"
+    },
+    {
+        "n": "Scintillating",
+        "tc": "lpur"
+    },
+    {
+        "n": "Prismatic",
+        "tc": "lpur"
+    },
+    {
+        "n": "Chromatic",
+        "tc": "lpur"
+    },
+    {
+        "n": "Shimmering",
+        "tc": "lpur"
+    },
+    {
+        "n": "Rainbow",
+        "tc": "lpur"
+    },
+    {
+        "n": "Scintillating",
+        "tc": "lpur"
+    },
+    {
+        "n": "Prismatic",
+        "tc": "lpur"
+    },
+    {
+        "n": "Chromatic",
+        "tc": "lpur"
+    },
+    {
+        "n": "Shimmering",
+        "tc": "lpur"
+    },
+    {
+        "n": "Rainbow",
+        "tc": "lpur"
+    },
+    {
+        "n": "Scintillating",
+        "tc": "lpur"
+    },
+    {
+        "n": "Shimmering",
+        "tc": "lpur"
+    },
+    {
+        "n": "Scintillating",
+        "tc": "lpur"
+    },
+    {
+        "n": "Azure"
+    },
+    {
+        "n": "Lapis"
+    },
+    {
+        "n": "Cobalt"
+    },
+    {
+        "n": "Sapphire"
+    },
+    {
+        "n": "Azure"
+    },
+    {
+        "n": "Lapis"
+    },
+    {
+        "n": "Cobalt",
+        "tc": "lblu"
+    },
+    {
+        "n": "Sapphire",
+        "tc": "lblu"
+    },
+    {
+        "n": "Azure"
+    },
+    {
+        "n": "Lapis"
+    },
+    {
+        "n": "Cobalt",
+        "tc": "lblu"
+    },
+    {
+        "n": "Sapphire",
+        "tc": "lblu"
+    },
+    {
+        "n": "Azure"
+    },
+    {
+        "n": "Lapis"
+    },
+    {
+        "n": "Lapis"
+    },
+    {
+        "n": "Cobalt"
+    },
+    {
+        "n": "Cobalt"
+    },
+    {
+        "n": "Sapphire",
+        "tc": "lblu"
+    },
+    {
+        "n": "Lapis Lazuli",
+        "tc": "lblu"
+    },
+    {
+        "n": "Sapphire",
+        "tc": "lblu"
+    },
+    {
+        "n": "Crimson"
+    },
+    {
+        "n": "Russet"
+    },
+    {
+        "n": "Garnet"
+    },
+    {
+        "n": "Ruby"
+    },
+    {
+        "n": "Crimson"
+    },
+    {
+        "n": "Russet"
+    },
+    {
+        "n": "Garnet",
+        "tc": "lred"
+    },
+    {
+        "n": "Ruby",
+        "tc": "lred"
+    },
+    {
+        "n": "Crimson"
+    },
+    {
+        "n": "Russet",
+        "tc": "lred"
+    },
+    {
+        "n": "Garnet",
+        "tc": "lred"
+    },
+    {
+        "n": "Ruby"
+    },
+    {
+        "n": "Russet"
+    },
+    {
+        "n": "Russet"
+    },
+    {
+        "n": "Garnet"
+    },
+    {
+        "n": "Garnet"
+    },
+    {
+        "n": "Ruby",
+        "tc": "lred"
+    },
+    {
+        "n": "Garnet",
+        "tc": "lred"
+    },
+    {
+        "n": "Ruby",
+        "tc": "lred"
+    },
+    {
+        "n": "Tangerine"
+    },
+    {
+        "n": "Ocher"
+    },
+    {
+        "n": "Coral"
+    },
+    {
+        "n": "Amber"
+    },
+    {
+        "n": "Tangerine"
+    },
+    {
+        "n": "Ocher"
+    },
+    {
+        "n": "Coral",
+        "tc": "lyel"
+    },
+    {
+        "n": "Amber",
+        "tc": "lyel"
+    },
+    {
+        "n": "Tangerine"
+    },
+    {
+        "n": "Ocher"
+    },
+    {
+        "n": "Coral",
+        "tc": "lyel"
+    },
+    {
+        "n": "Amber",
+        "tc": "lyel"
+    },
+    {
+        "n": "Tangerine"
+    },
+    {
+        "n": "Ocher"
+    },
+    {
+        "n": "Ocher"
+    },
+    {
+        "n": "Coral"
+    },
+    {
+        "n": "Coral"
+    },
+    {
+        "n": "Amber",
+        "tc": "lyel"
+    },
+    {
+        "n": "Camphor",
+        "tc": "lyel"
+    },
+    {
+        "n": "Ambergris",
+        "tc": "lyel"
+    },
+    {
+        "n": "Beryl"
+    },
+    {
+        "n": "Viridian"
+    },
+    {
+        "n": "Jade"
+    },
+    {
+        "n": "Emerald"
+    },
+    {
+        "n": "Beryl"
+    },
+    {
+        "n": "Viridian"
+    },
+    {
+        "n": "Jade",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Emerald",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Beryl"
+    },
+    {
+        "n": "Viridian"
+    },
+    {
+        "n": "Jade",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Emerald",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Beryl"
+    },
+    {
+        "n": "Viridian"
+    },
+    {
+        "n": "Viridian"
+    },
+    {
+        "n": "Jade"
+    },
+    {
+        "n": "Jade"
+    },
+    {
+        "n": "Emerald",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Beryl",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Jade",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Triumphant"
+    },
+    {
+        "n": "Victorious"
+    },
+    {
+        "n": "Aureolin"
+    },
+    {
+        "n": "Mechanist's"
+    },
+    {
+        "n": "Artificer's"
+    },
+    {
+        "n": "Jeweler's"
+    },
+    {
+        "n": "Assamic"
+    },
+    {
+        "n": "Arcadian"
+    },
+    {
+        "n": "Unearthly"
+    },
+    {
+        "n": "Astral"
+    },
+    {
+        "n": "Elysian",
+        "tc": "dgld"
+    },
+    {
+        "n": "Celestial",
+        "tc": "dgld"
+    },
+    {
+        "n": "Diamond"
+    },
+    {
+        "n": "Fletcher's"
+    },
+    {
+        "n": "Acrobat's"
+    },
+    {
+        "n": "Harpoonist's"
+    },
+    {
+        "n": "Fletcher's"
+    },
+    {
+        "n": "Bowyer's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Archer's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Acrobat's"
+    },
+    {
+        "n": "Gymnast's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Athlete's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Harpoonist's"
+    },
+    {
+        "n": "Spearmaiden's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Lancer's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Burning"
+    },
+    {
+        "n": "Sparking"
+    },
+    {
+        "n": "Chilling"
+    },
+    {
+        "n": "Burning"
+    },
+    {
+        "n": "Blazing",
+        "tc": "lgld"
+    },
+    {
+        "n": "Volcanic",
+        "tc": "lgld"
+    },
+    {
+        "n": "Sparking"
+    },
+    {
+        "n": "Charged",
+        "tc": "lgld"
+    },
+    {
+        "n": "Powered",
+        "tc": "lgld"
+    },
+    {
+        "n": "Chilling"
+    },
+    {
+        "n": "Freezing",
+        "tc": "lgld"
+    },
+    {
+        "n": "Glacial",
+        "tc": "lgld"
+    },
+    {
+        "n": "Hexing"
+    },
+    {
+        "n": "Fungal"
+    },
+    {
+        "n": "Graverobber's"
+    },
+    {
+        "n": "Hexing"
+    },
+    {
+        "n": "Blighting",
+        "tc": "lgld"
+    },
+    {
+        "n": "Accursed",
+        "tc": "lgld"
+    },
+    {
+        "n": "Fungal"
+    },
+    {
+        "n": "Noxious",
+        "tc": "lgld"
+    },
+    {
+        "n": "Venomous",
+        "tc": "lgld"
+    },
+    {
+        "n": "Graverobber's"
+    },
+    {
+        "n": "Vodoun",
+        "tc": "lgld"
+    },
+    {
+        "n": "Golemlord's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Lion Branded"
+    },
+    {
+        "n": "Captain's"
+    },
+    {
+        "n": "Preserver's"
+    },
+    {
+        "n": "Lion Branded"
+    },
+    {
+        "n": "Hawk Branded",
+        "tc": "lgld"
+    },
+    {
+        "n": "Rose Branded",
+        "tc": "lgld"
+    },
+    {
+        "n": "Captain's"
+    },
+    {
+        "n": "Commander's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Marshal's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Preserver's"
+    },
+    {
+        "n": "Warder's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Guardian's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Expert's"
+    },
+    {
+        "n": "Fanatic"
+    },
+    {
+        "n": "Sounding"
+    },
+    {
+        "n": "Expert's"
+    },
+    {
+        "n": "Veteran's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Master's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Fanatic"
+    },
+    {
+        "n": "Raging",
+        "tc": "lgld"
+    },
+    {
+        "n": "Furious",
+        "tc": "lgld"
+    },
+    {
+        "n": "Sounding"
+    },
+    {
+        "n": "Resonant",
+        "tc": "lgld"
+    },
+    {
+        "n": "Echoing",
+        "tc": "lgld"
+    },
+    {
+        "n": "Trainer's"
+    },
+    {
+        "n": "Spiritual"
+    },
+    {
+        "n": "Nature's"
+    },
+    {
+        "n": "Trainer's"
+    },
+    {
+        "n": "Caretaker's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Keeper's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Spiritual"
+    },
+    {
+        "n": "Feral",
+        "tc": "lgld"
+    },
+    {
+        "n": "Communal",
+        "tc": "lgld"
+    },
+    {
+        "n": "Nature's"
+    },
+    {
+        "n": "Terra's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Gaea's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Entrapping"
+    },
+    {
+        "n": "Mentalist's"
+    },
+    {
+        "n": "Shogukusha's"
+    },
+    {
+        "n": "Entrapping"
+    },
+    {
+        "n": "Trickster's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Cunning",
+        "tc": "lgld"
+    },
+    {
+        "n": "Mentalist's"
+    },
+    {
+        "n": "Psychic",
+        "tc": "lgld"
+    },
+    {
+        "n": "Shadow",
+        "tc": "lgld"
+    },
+    {
+        "n": "Shogukusha's"
+    },
+    {
+        "n": "Sensei's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Kenshi's",
+        "tc": "lgld"
+    },
+    {
+        "n": "Miocene",
+        "tc": "whit"
+    },
+    {
+        "n": "Miocene",
+        "tc": "whit"
+    },
+    {
+        "n": "Oligocene",
+        "tc": "whit"
+    },
+    {
+        "n": "Oligocene",
+        "tc": "whit"
+    },
+    {
+        "n": "Eocene",
+        "tc": "whit"
+    },
+    {
+        "n": "Eocene",
+        "tc": "whit"
+    },
+    {
+        "n": "Paleocene",
+        "tc": "whit"
+    },
+    {
+        "n": "Paleocene",
+        "tc": "whit"
+    },
+    {
+        "n": "Knave's",
+        "tc": "whit"
+    },
+    {
+        "n": "Jack's",
+        "tc": "whit"
+    },
+    {
+        "n": "Jester's",
+        "tc": "whit"
+    },
+    {
+        "n": "Joker's",
+        "tc": "whit"
+    },
+    {
+        "n": "Trump",
+        "tc": "whit"
+    },
+    {
+        "n": "Loud",
+        "tc": "whit"
+    },
+    {
+        "n": "Calling",
+        "tc": "whit"
+    },
+    {
+        "n": "Yelling",
+        "tc": "whit"
+    },
+    {
+        "n": "Shouting",
+        "tc": "whit"
+    },
+    {
+        "n": "Gritty",
+        "tc": "whit"
+    },
+    {
+        "n": "Paradox",
+        "tc": "whit"
+    },
+    {
+        "n": "Paradox",
+        "tc": "whit"
+    },
+    {
+        "n": "Robineye",
+        "tc": "whit"
+    },
+    {
+        "n": "Sparroweye",
+        "tc": "whit"
+    },
+    {
+        "n": "Falconeye",
+        "tc": "whit"
+    },
+    {
+        "n": "Hawkeye",
+        "tc": "whit"
+    },
+    {
+        "n": "Eagleeye",
+        "tc": "whit"
+    },
+    {
+        "n": "Visionary",
+        "tc": "whit"
+    },
+    {
+        "n": "Mnemonic",
+        "tc": "cblu"
+    },
+    {
+        "n": "Snowflake",
+        "tc": "lblu"
+    },
+    {
+        "n": "Shivering",
+        "tc": "lblu"
+    },
+    {
+        "n": "Boreal",
+        "tc": "lblu"
+    },
+    {
+        "n": "Hibernal",
+        "tc": "lblu"
+    },
+    {
+        "n": "Ember",
+        "tc": "dred"
+    },
+    {
+        "n": "Smoldering",
+        "tc": "dred"
+    },
+    {
+        "n": "Smoking",
+        "tc": "dred"
+    },
+    {
+        "n": "Flaming",
+        "tc": "dred"
+    },
+    {
+        "n": "Scorching",
+        "tc": "dred"
+    },
+    {
+        "n": "Static",
+        "tc": "lyel"
+    },
+    {
+        "n": "Glowing",
+        "tc": "lyel"
+    },
+    {
+        "n": "Buzzing",
+        "tc": "lyel"
+    },
+    {
+        "n": "Arcing",
+        "tc": "lyel"
+    },
+    {
+        "n": "Shocking",
+        "tc": "lyel"
+    },
+    {
+        "n": "Septic",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Envenomed",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Corosive",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Toxic",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Pestilent",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Maiden's"
+    },
+    {
+        "n": "Valkyrie's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Maiden's"
+    },
+    {
+        "n": "Valkyrie's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Monk's"
+    },
+    {
+        "n": "Priest's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Monk's"
+    },
+    {
+        "n": "Priest's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Monk's"
+    },
+    {
+        "n": "Priest's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Summoner's"
+    },
+    {
+        "n": "Necromancer's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Summoner's"
+    },
+    {
+        "n": "Necromancer's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Angel's"
+    },
+    {
+        "n": "Arch-Angel's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Angel's"
+    },
+    {
+        "n": "Arch-Angel's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Slayer's"
+    },
+    {
+        "n": "Berserker's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Slayer's"
+    },
+    {
+        "n": "Berserker's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Slayer's"
+    },
+    {
+        "n": "Berserker's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Shaman's"
+    },
+    {
+        "n": "Hierophant's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Shaman's"
+    },
+    {
+        "n": "Hierophant's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Magekiller's"
+    },
+    {
+        "n": "Witch-hunter's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Magekiller's"
+    },
+    {
+        "n": "Witch-hunter's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Compact"
+    },
+    {
+        "n": "Thin"
+    },
+    {
+        "n": "Dense"
+    },
+    {
+        "n": "Consecrated"
+    },
+    {
+        "n": "Pure",
+        "tc": "lgld"
+    },
+    {
+        "n": "Sacred",
+        "tc": "lgld"
+    },
+    {
+        "n": "Hallowed",
+        "tc": "lgld"
+    },
+    {
+        "n": "Divine",
+        "tc": "lgld"
+    },
+    {
+        "n": "Pearl"
+    },
+    {
+        "n": "Crimson"
+    },
+    {
+        "n": "Red"
+    },
+    {
+        "n": "Sanguinary"
+    },
+    {
+        "n": "Bloody"
+    },
+    {
+        "n": "Red",
+        "tc": "dred"
+    },
+    {
+        "n": "Sanguinary",
+        "tc": "dred"
+    },
+    {
+        "n": "Red",
+        "tc": "dred"
+    },
+    {
+        "n": "Jagged"
+    },
+    {
+        "n": "Forked"
+    },
+    {
+        "n": "Serrated"
+    },
+    {
+        "n": "Jagged",
+        "tc": "blac"
+    },
+    {
+        "n": "Forked",
+        "tc": "blac"
+    },
+    {
+        "n": "Jagged",
+        "tc": "blac"
+    },
+    {
+        "n": "Snowflake"
+    },
+    {
+        "n": "Shivering"
+    },
+    {
+        "n": "Boreal"
+    },
+    {
+        "n": "Hibernal"
+    },
+    {
+        "n": "Snowflake"
+    },
+    {
+        "n": "Shivering"
+    },
+    {
+        "n": "Boreal",
+        "tc": "lblu"
+    },
+    {
+        "n": "Hibernal",
+        "tc": "lblu"
+    },
+    {
+        "n": "Snowflake"
+    },
+    {
+        "n": "Shivering"
+    },
+    {
+        "n": "Boreal",
+        "tc": "lblu"
+    },
+    {
+        "n": "Hibernal",
+        "tc": "lblu"
+    },
+    {
+        "n": "Ember"
+    },
+    {
+        "n": "Smoldering"
+    },
+    {
+        "n": "Smoking"
+    },
+    {
+        "n": "Flaming"
+    },
+    {
+        "n": "Ember"
+    },
+    {
+        "n": "Smoldering"
+    },
+    {
+        "n": "Smoking",
+        "tc": "lred"
+    },
+    {
+        "n": "Flaming",
+        "tc": "lred"
+    },
+    {
+        "n": "Ember"
+    },
+    {
+        "n": "Smoldering"
+    },
+    {
+        "n": "Smoking",
+        "tc": "lred"
+    },
+    {
+        "n": "Flaming",
+        "tc": "lred"
+    },
+    {
+        "n": "Static"
+    },
+    {
+        "n": "Glowing"
+    },
+    {
+        "n": "Arcing"
+    },
+    {
+        "n": "Shocking"
+    },
+    {
+        "n": "Static"
+    },
+    {
+        "n": "Glowing"
+    },
+    {
+        "n": "Arcing",
+        "tc": "whit"
+    },
+    {
+        "n": "Shocking",
+        "tc": "whit"
+    },
+    {
+        "n": "Static"
+    },
+    {
+        "n": "Glowing"
+    },
+    {
+        "n": "Arcing",
+        "tc": "whit"
+    },
+    {
+        "n": "Shocking",
+        "tc": "whit"
+    },
+    {
+        "n": "Septic"
+    },
+    {
+        "n": "Envenomed"
+    },
+    {
+        "n": "Toxic"
+    },
+    {
+        "n": "Pestilent"
+    },
+    {
+        "n": "Septic"
+    },
+    {
+        "n": "Envenomed"
+    },
+    {
+        "n": "Toxic",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Pestilent",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Septic"
+    },
+    {
+        "n": "Envenomed"
+    },
+    {
+        "n": "Toxic",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Pestilent",
+        "tc": "dgrn"
+    },
+    {
+        "n": "Tireless"
+    },
+    {
+        "n": "Lizard's"
+    },
+    {
+        "n": "Azure"
+    },
+    {
+        "n": "Crimson"
+    },
+    {
+        "n": "Tangerine"
+    },
+    {
+        "n": "Beryl"
+    },
+    {
+        "n": "Godly",
+        "tc": "dgld"
+    },
+    {
+        "n": "Cruel",
+        "tc": "blac"
+    },
+    {
+        "n": "Virulent"
+    },
+    {
+        "n": "Virulent"
+    },
+    {
+        "n": "Virulent"
+    },
+    {
+        "n": "Virulent"
+    },
+    {
+        "n": "Virulent"
+    },
+    {
+        "n": "Incendiary"
+    },
+    {
+        "n": "Incendiary"
+    },
+    {
+        "n": "Incendiary"
+    },
+    {
+        "n": "Incendiary"
+    },
+    {
+        "n": "Incendiary"
+    },
+    {
+        "n": "Gelid"
+    },
+    {
+        "n": "Gelid"
+    },
+    {
+        "n": "Gelid"
+    },
+    {
+        "n": "Gelid"
+    },
+    {
+        "n": "Gelid"
+    },
+    {
+        "n": "Magnetic"
+    },
+    {
+        "n": "Magnetic"
+    },
+    {
+        "n": "Magnetic"
+    },
+    {
+        "n": "Magnetic"
+    },
+    {
+        "n": "Magnetic"
+    },
+    {
+        "n": "Mystical"
+    },
+    {
+        "n": "Mystical"
+    },
+    {
+        "n": "Mystical"
+    },
+    {
+        "n": "Mystical"
+    },
+    {
+        "n": "Mystical"
+    },
+    {
+        "n": "Breaching"
+    },
+    {
+        "n": "Breaching"
+    },
+    {
+        "n": "Breaching"
+    },
+    {
+        "n": "Breaching"
+    },
+    {
+        "n": "Breaching"
+    },
+    {
+        "n": "Chaotic"
+    },
+    {
+        "n": "Sullied"
+    },
+    {
+        "n": "Fiendish"
+    },
+    {
+        "n": "Chaotic"
+    },
+    {
+        "n": "Erratic",
+        "tc": "lgld"
+    },
+    {
+        "n": "Torrid",
+        "tc": "lgld"
+    },
+    {
+        "n": "Sullied"
+    },
+    {
+        "n": "TaintedAffix",
+        "tc": "lgld"
+    },
+    {
+        "n": "Forbidden",
+        "tc": "lgld"
+    },
+    {
+        "n": "Fiendish"
+    },
+    {
+        "n": "Dreadful",
+        "tc": "lgld"
+    },
+    {
+        "n": "Malevolent",
+        "tc": "lgld"
+    },
+    {
+        "n": "Devil's"
+    },
+    {
+        "n": "Arch-Devil's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Devil's"
+    },
+    {
+        "n": "Arch-Devil's",
+        "tc": "cgrn"
+    },
+    {
+        "n": "Virulent"
+    },
+    {
+        "n": "Incendiary"
+    },
+    {
+        "n": "Gelid"
+    },
+    {
+        "n": "Magnetic"
+    },
+    {
+        "n": "Mystical"
+    },
+    {
+        "n": "Breaching"
+    }
+],
   magic_suffixes: [
     null,
     { n: 'of Health' },
@@ -4990,7 +7380,10 @@ export let constants = {
     { s: 'source_unit_id' },
     { s: 'shortparam1' },
     { s: 'questitemdifficulty', sB: 2, sA: 0 },
-    { s: 'passive_mag_mastery', sS: 1, sB: 9, sA: 50 },
+    { s: 'passive_mag_mastery', sS: 1, sB: 9, sA: 50, so: 88,
+      dF: 19,
+      dP: '%+d%% to Magic Skill Damage',
+      dN: '%+d%% to Magic Skill Damage', },
     {
       s: 'passive_mag_pierce',
       sS: 1,

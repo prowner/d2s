@@ -10,7 +10,7 @@ export function readHeader(char: types.ID2S, reader: BitReader, constants: types
   reader.SkipBytes(4); //0x0010
   if (char.header.version > 0x61) {
     if (char.header.version === 0x69) {
-      reader.SeekByte(297);
+      reader.SeekByte(299);
     } else {
       reader.SeekByte(267);
     }
@@ -488,8 +488,8 @@ function _readWaypoints(bytes: Uint8Array): types.IWaypoints {
   waypoints.act_v.frigid_highlands = reader.ReadBit() === 1;
   waypoints.act_v.arreat_plateau = reader.ReadBit() === 1;
   waypoints.act_v.crystalline_passage = reader.ReadBit() === 1;
-  waypoints.act_v.halls_of_pain = reader.ReadBit() === 1;
   waypoints.act_v.glacial_trail = reader.ReadBit() === 1;
+  waypoints.act_v.halls_of_pain = reader.ReadBit() === 1;
   waypoints.act_v.frozen_tundra = reader.ReadBit() === 1;
   waypoints.act_v.the_ancients_way = reader.ReadBit() === 1;
   waypoints.act_v.worldstone_keep_lvl_2 = reader.ReadBit() === 1;
@@ -555,8 +555,8 @@ function _writeWaypoints(waypoints: types.IWaypoints): Uint8Array {
       writer.WriteBit(+waypoints.act_v.frigid_highlands);
       writer.WriteBit(+waypoints.act_v.arreat_plateau);
       writer.WriteBit(+waypoints.act_v.crystalline_passage);
-      writer.WriteBit(+waypoints.act_v.halls_of_pain);
       writer.WriteBit(+waypoints.act_v.glacial_trail);
+      writer.WriteBit(+waypoints.act_v.halls_of_pain);
       writer.WriteBit(+waypoints.act_v.frozen_tundra);
       writer.WriteBit(+waypoints.act_v.the_ancients_way);
       writer.WriteBit(+waypoints.act_v.worldstone_keep_lvl_2);

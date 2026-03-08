@@ -1,7 +1,7 @@
 import * as types from "./types";
 import { BitReader } from "../binary/bitreader";
 import { BitWriter } from "../binary/bitwriter";
-import { write } from "fs";
+import { read, write } from "fs";
 import { count } from "console";
 
 enum ItemType {
@@ -92,11 +92,25 @@ export async function writeGolemItems(char: types.ID2S, constants: types.IConsta
   return writer.ToArray();
 }
 
+export async function readDemon(char: types.ID2S, reader: BitReader, constants: types.IConstantData, config: types.IConfig) {
+  reader.SkipBytes(2);
+  const header = reader.ReadString(2); // 0x6C 0x66 lf Demon header
+  if (header === "lf") {
+    char.demon = {
+      data: Array.from(reader.ReadBytes((reader.bits.length - reader.offset) / 8)),
+    };
+  }
+}
+
 export async function writeDemon(char: types.ID2S, constants: types.IConstantData, config: types.IConfig): Promise<Uint8Array> {
   const writer = new BitWriter();
   writer.WriteArray(new Uint8Array([0x01, 0x00]));
   writer.WriteString("lf", 2);
-  writer.WriteArray(new Uint8Array([0x00, 0x00]));
+  if (char.demon?.data) {
+    writer.WriteBytes(new Uint8Array(char.demon.data));
+  } else {
+    writer.WriteArray(new Uint8Array([0x00, 0x00]));
+  }
   return writer.ToArray();
 }
 
@@ -152,6 +166,16 @@ export async function readItems(
   const count = reader.ReadUInt16(); //0x0002
 
   for (let i = 0; i < count; i++) {
+    /*if (version === 0x69) {
+      const bitStr = reader.bits.join("");
+      const searchStart = reader.offset;
+      const marker1 = "000000001 00001000 10100000".replace(/ /g, ""); // search for next item
+      const marker2 = "000000001 00000000 10100000".replace(/ /g, ""); // search for next item
+      const id1 = bitStr.indexOf(marker1, searchStart);
+      const id2 = bitStr.indexOf(marker2, searchStart);
+      const id = id1 !== -1 && id2 !== -1 ? Math.min(id1, id2) : Math.max(id1, id2);
+      reader.SeekBit(id - 15);
+    }*/
     items.push(await readItem(reader, version, constants, config));
   }
   return items;
@@ -355,27 +379,30 @@ export async function readItem(
     }
   }
 
+  /*if (item._unknown_data.b27_31 && item._unknown_data.b27_31?.some((b) => b === 1)) {
+    reader.SkipBits(53); // skip 50 - 53
+    reader.Align();
+  }*/
+
   if (version === 0x69) {
+    if (!item.identified && (item.quality === Quality.Unique || item.quality === Quality.Set)) {
+      item.chronicle = {
+        monsterId: reader.ReadUInt16(),
+        timestamp: reader.ReadUInt32(),
+      };
+      reader.SkipBits(4);
+    }
     item._unknown_data.chest_stackable = reader.ReadBit(); //unknown bit in RotW (stackable in chest?)
     if (item._unknown_data.chest_stackable) {
-      reader.SkipBits(8);
+      item.amount_in_shared_stash = reader.ReadUInt8();
     }
   }
-  reader.Align();
 
+  reader.Align();
   if (item.nr_of_items_in_sockets > 0 && item.simple_item === 0) {
     item.socketed_items = [];
     for (let i = 0; i < item.nr_of_items_in_sockets; i++) {
       item.socketed_items.push(await readItem(reader, version, constants, config, item));
-    }
-  }
-
-  if (item.type === "cjw") {
-    reader.SkipBytes(5);
-    reader.SkipBits(7);
-    const b = reader.ReadBit();
-    if (b) {
-      reader.SkipBytes(1);
     }
   }
   //console.log(JSON.stringify(item));
@@ -522,10 +549,14 @@ export async function writeItem(
   }
 
   if (version === 0x69) {
+    if (!item.identified && (item.quality === Quality.Unique || item.quality === Quality.Set) && item.chronicle) {
+      writer.WriteUInt16(item.chronicle.monsterId);
+      writer.WriteUInt32(item.chronicle.timestamp);
+      writer.WriteUInt8(0, 4); //unknown bit in RotW
+    }
     writer.WriteUInt8(item._unknown_data.chest_stackable || 0, 1);
-
     if (item._unknown_data.chest_stackable) {
-      writer.WriteUInt8(0, 8); //unknown bit in RotW (stackable in chest?)
+      writer.WriteUInt8(item.amount_in_shared_stash || 0, 8); //unknown bit in RotW (stackable in chest?)
     }
   }
 
@@ -546,34 +577,34 @@ function _readSimpleBits(item: types.IItem, reader: BitReader, version: number, 
   //[flags:32][version:10][mode:3]([invloc:4][x:4][y:4][page:3])([itemcode:32])([sockets:3])
   //1.15
   //[flags:32][version:3][mode:3]([invloc:4][x:4][y:4][page:3])([itemcode:variable])([sockets:3])
-  item._unknown_data.b0_3 = reader.ReadBitArray(4);
-  item.identified = reader.ReadBit();
-  item._unknown_data.b5_10 = reader.ReadBitArray(6);
-  item.socketed = reader.ReadBit();
-  item._unknown_data.b12 = reader.ReadBitArray(1);
-  item.new = reader.ReadBit();
-  item._unknown_data.b14_15 = reader.ReadBitArray(2);
-  item.is_ear = reader.ReadBit();
-  item.starter_item = reader.ReadBit();
-  item._unknown_data.b18_20 = reader.ReadBitArray(3);
-  item.simple_item = reader.ReadBit();
-  item.ethereal = reader.ReadBit();
-  item._unknown_data.b23 = reader.ReadBitArray(1);
-  item.personalized = reader.ReadBit();
-  item._unknown_data.b25 = reader.ReadBitArray(1);
-  item.given_runeword = reader.ReadBit();
-  item._unknown_data.b27_31 = reader.ReadBitArray(5);
+  item._unknown_data.b0_3 = reader.ReadBitArray(4); // 0 byte 1
+  item.identified = reader.ReadBit(); // 4
+  item._unknown_data.b5_10 = reader.ReadBitArray(6); // 5
+  item.socketed = reader.ReadBit(); // 11
+  item._unknown_data.b12 = reader.ReadBitArray(1); // 12
+  item.new = reader.ReadBit(); // 13
+  item._unknown_data.b14_15 = reader.ReadBitArray(2); // 14
+  item.is_ear = reader.ReadBit(); // 16 byte 3
+  item.starter_item = reader.ReadBit(); // 17
+  item._unknown_data.b18_20 = reader.ReadBitArray(3); // 18
+  item.simple_item = reader.ReadBit(); // 21
+  item.ethereal = reader.ReadBit(); // 22
+  item._unknown_data.b23 = reader.ReadBitArray(1); // 23
+  item.personalized = reader.ReadBit(); // 24 byte 4
+  item._unknown_data.b25 = reader.ReadBitArray(1); // 25
+  item.given_runeword = reader.ReadBit(); // 26
+  item._unknown_data.b27_31 = reader.ReadBitArray(5); // 27
 
   if (version <= 0x60) {
     item.version = reader.ReadUInt16(10).toString(10);
   } else if (version >= 0x61) {
-    item.version = reader.ReadUInt16(3).toString(2);
+    item.version = reader.ReadUInt16(3).toString(2); // 32 byte 5
   }
-  item.location_id = reader.ReadUInt8(3);
-  item.equipped_id = reader.ReadUInt8(4);
-  item.position_x = reader.ReadUInt8(4);
-  item.position_y = reader.ReadUInt8(4);
-  item.alt_position_id = reader.ReadUInt8(3);
+  item.location_id = reader.ReadUInt8(3); // 34
+  item.equipped_id = reader.ReadUInt8(4); // 37
+  item.position_x = reader.ReadUInt8(4); // 41
+  item.position_y = reader.ReadUInt8(4); // 45
+  item.alt_position_id = reader.ReadUInt8(3); // 49
   if (item.is_ear) {
     const clazz = reader.ReadUInt8(3);
     const level = reader.ReadUInt8(7);
@@ -600,7 +631,7 @@ function _readSimpleBits(item: types.IItem, reader: BitReader, version: number, 
       for (let i = 0; i < 4; i++) {
         let node = HUFFMAN as any;
         do {
-          node = node[reader.ReadBit()];
+          node = node[reader.ReadBit()]; // 50
         } while (Array.isArray(node));
         item.type += node;
       }

@@ -106,6 +106,15 @@ export class BitReader {
     return this.SeekBit(offset * 8);
   }
 
+  public SeekSequence(sequence: string, offset = 0): BitReader {
+    const bitStr = this.bits.join("");
+    const idx = bitStr.indexOf(sequence, this.offset);
+    if (idx !== -1) {
+      return this.SeekBit(idx + offset);
+    }
+    return this;
+  }
+
   public Align(): BitReader {
     this.offset = (this.offset + 7) & ~7;
     return this;

@@ -31,10 +31,16 @@ async function read(buffer: Uint8Array, constants?: types.IConstantData, userCon
   await readAttributes(char, reader, constants);
   await readSkills(char, reader, constants);
   await items.readCharItems(char, reader, constants, config);
+  /*if (char.header.version === 0x69) {
+    reader.SeekSequence("01010010 10110010".replace(/ /g, ""));
+  }*/
   await items.readCorpseItems(char, reader, constants, config);
   if (char.header.status.expansion || char.header.version === 0x69) {
     await items.readMercItems(char, reader, constants, config);
     await items.readGolemItems(char, reader, constants, config);
+  }
+  if (char.header.version === 0x69) {
+    await items.readDemon(char, reader, constants, config);
   }
   await enhanceAttributes(char, constants, config);
   return char;

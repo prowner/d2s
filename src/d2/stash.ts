@@ -5,6 +5,7 @@ import { enhanceItems } from "./attribute_enhancer";
 import { BitReader } from "../binary/bitreader";
 import { config } from "chai";
 import { getConstantData } from "./constants";
+import { constants as constants_105 } from "../data/versions/105_constant_data";
 
 const defaultConfig = {
   extendedStash: false,
@@ -23,16 +24,23 @@ export async function read(
   reader.SeekByte(0);
   if (firstHeader == 0xaa55aa55) {
     stash.pages = [];
+    stash.sharedGold = 0;
     let pageCount = 0;
-    while (reader.offset < reader.bits.length) {
+    while (reader.offset < reader.bits.length && pageCount < 6) {
+      const pageIndex = pageCount;
       pageCount++;
-      await readStashHeader(stash, reader);
+      await readStashHeader(stash, reader, pageIndex);
       const saveVersion = version || parseInt(stash.version);
       if (!constants) {
         constants = getConstantData(saveVersion);
       }
-      await readStashPart(stash, reader, saveVersion, constants);
+      await readStashPart(stash, reader, saveVersion, constants, pageIndex);
     }
+    const saveVersion = version || parseInt(stash.version);
+    if (!constants) {
+      constants = getConstantData(saveVersion);
+    }
+    await readChronicle(stash, reader, saveVersion, constants);
     stash.pageCount = pageCount;
   } else {
     await readStashHeader(stash, reader);
@@ -45,7 +53,7 @@ export async function read(
   return stash;
 }
 
-async function readStashHeader(stash: types.IStash, reader: BitReader) {
+async function readStashHeader(stash: types.IStash, reader: BitReader, pageIndex?: number) {
   const header = reader.ReadUInt32();
   switch (header) {
     // Resurrected
@@ -53,9 +61,21 @@ async function readStashHeader(stash: types.IStash, reader: BitReader) {
       stash.type = types.EStashType.shared;
       stash.hardcore = reader.ReadUInt32() == 0;
       stash.version = reader.ReadUInt32().toString();
-      stash.sharedGold = reader.ReadUInt32();
+      const version = parseInt(stash.version);
+      stash.sharedGold += reader.ReadUInt32();
       reader.ReadUInt32(); // size of the sector
-      reader.SkipBytes(44); // empty
+      if (version === 0x69 && pageIndex !== undefined) {
+        const isStackable = reader.ReadByte();
+        stash.pages[pageIndex] = {
+          items: [],
+          name: "",
+          type: 0,
+          isStackable,
+        };
+        reader.SkipBytes(43);
+      } else {
+        reader.SkipBytes(44); // empty
+      }
       break;
     // LoD
     case 0x535353: // SSS
@@ -93,6 +113,20 @@ async function readStashPages(stash: types.IStash, reader: BitReader, version: n
   }
 }
 
+async function readChronicle(stash: types.IStash, reader: BitReader, version: number, constants: types.IConstantData) {
+  stash.chronicle = {
+    data: Array.from(reader.ReadBytes((reader.bits.length - reader.offset) / 8)),
+  };
+}
+
+async function writeChronicle(stash: types.IStash): Promise<Uint8Array> {
+  const writer = new BitWriter();
+  if (stash.chronicle?.data) {
+    writer.WriteBytes(new Uint8Array(stash.chronicle.data));
+  }
+  return writer.ToArray();
+}
+
 async function readStashPage(stash: types.IStash, reader: BitReader, version: number, constants: types.IConstantData) {
   const page: types.IStashPage = {
     items: [],
@@ -112,15 +146,18 @@ async function readStashPage(stash: types.IStash, reader: BitReader, version: nu
   stash.pages.push(page);
 }
 
-async function readStashPart(stash: types.IStash, reader: BitReader, version: number, constants: types.IConstantData) {
-  const page: types.IStashPage = {
+async function readStashPart(stash: types.IStash, reader: BitReader, version: number, constants: types.IConstantData, pageIndex?: number) {
+  const currentPage = pageIndex !== undefined ? stash.pages[pageIndex] : undefined;
+  const page: types.IStashPage = currentPage || {
     items: [],
     name: "",
     type: 0,
   };
   page.items = await items.readItems(reader, version, constants, defaultConfig);
   enhanceItems(page.items, constants, 1);
-  stash.pages.push(page);
+  if (!currentPage) {
+    stash.pages.push(page);
+  }
 }
 
 export async function write(
@@ -138,6 +175,9 @@ export async function write(
     for (const page of data.pages) {
       writer.WriteArray(await writeStashSection(data, page, constants, config));
     }
+    /*if (version === 0x69) {
+      writer.WriteArray(await writeChronicle(data));
+    }*/ // not required to load
   } else {
     writer.WriteArray(await writeStashHeader(data));
     writer.WriteArray(await writeStashPages(data, version, constants, config));
@@ -173,13 +213,21 @@ async function writeStashSection(
   userConfig: types.IConfig
 ): Promise<Uint8Array> {
   const writer = new BitWriter();
+  const version = parseInt(data.version);
   writer.WriteUInt32(0xaa55aa55);
-  writer.WriteUInt32(data.hardcore ? 0 : 1);
-  writer.WriteUInt32(0x62);
-  writer.WriteUInt32(data.sharedGold);
+  writer.WriteUInt32(data.hardcore ? 0 : version === 0x69 ? 2 : 1); // change to 0x02
+  writer.WriteUInt32(version);
+  const maxGold = Math.min(data.sharedGold, 2500000);
+  data.sharedGold = Math.max(0, data.sharedGold - maxGold);
+  writer.WriteUInt32(maxGold);
   writer.WriteUInt32(0); // size of the sector, to be fixed later
-  writer.WriteBytes(new Uint8Array(44).fill(0)); // empty
-  writer.WriteArray(await items.writeItems(page.items, 0x62, constants, userConfig));
+  if (version === 0x69) {
+    writer.WriteByte(page.isStackable || 0);
+    writer.WriteBytes(new Uint8Array(43).fill(0)); // empty
+  } else {
+    writer.WriteBytes(new Uint8Array(44).fill(0)); // empty
+  }
+  writer.WriteArray(await items.writeItems(page.items, parseInt(data.version), constants, userConfig));
   const size = writer.offset;
   writer.SeekByte(16);
   writer.WriteUInt32(Math.ceil(size / 8));
