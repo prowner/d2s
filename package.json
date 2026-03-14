@@ -41,6 +41,10 @@
   "files": [
     "lib"
   ],
-  "author": "dschu012",
-  "license": "ISC"
+  "author": "prowner",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prowner/d2s.git"
+  }
 }
