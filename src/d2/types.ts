@@ -472,6 +472,5 @@ export interface IDemon {
     b35_57: Uint8Array;
     b59_61: Uint8Array;
     b63_86: Uint8Array;
-
   };
 }

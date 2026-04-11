@@ -57,7 +57,7 @@ export async function enhanceItems(
 }
 
 export function enhanceItem(item: types.IItem, constants: types.IConstantData, level = 1, config?: types.IConfig, parent?: types.IItem) {
-  if(config?.disableItemEnhancements) {
+  if (config?.disableItemEnhancements) {
     return;
   }
   if (parent) {

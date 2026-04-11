@@ -8,4 +8,3 @@ export function seekToSequence(reader: BitReader, sequence: string, offset: numb
     reader.SeekBit(idx + 1 + offset);
   }
 }
-

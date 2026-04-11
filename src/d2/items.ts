@@ -121,7 +121,7 @@ export async function readDemon(char: types.ID2S, reader: BitReader, constants: 
     for (let i = 0; i < 9; i++) {
       char.demon.mods.push(reader.ReadUInt8());
     }
-    char.demon.stats = Array.from(reader.ReadBytes((reader.bits.length - reader.offset) / 8))
+    char.demon.stats = Array.from(reader.ReadBytes((reader.bits.length - reader.offset) / 8));
   }
 }
 
