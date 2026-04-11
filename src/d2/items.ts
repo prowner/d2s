@@ -96,9 +96,32 @@ export async function readDemon(char: types.ID2S, reader: BitReader, constants: 
   reader.SkipBytes(2);
   const header = reader.ReadString(2); // 0x6C 0x66 lf Demon header
   if (header === "lf") {
+    const hasDemon = reader.ReadUInt8();
+    if (!hasDemon) return;
     char.demon = {
-      data: Array.from(reader.ReadBytes((reader.bits.length - reader.offset) / 8)),
-    };
+      _unknown_data: {},
+      mods: [],
+      //data: Array.from(reader.ReadBytes((reader.bits.length - reader.offset) / 8)),
+    } as any;
+    char.demon._unknown_data.b1_4 = reader.ReadBytes(3);
+    char.demon.isSuperUnique = reader.ReadUInt16() === 2 ? 1 : 0;
+    char.demon.index = reader.ReadUInt16();
+    char.demon._unknown_data.b9_15 = reader.ReadBytes(6);
+    char.demon.difficulty = reader.ReadUInt8();
+    char.demon._unknown_data.b17_28 = reader.ReadBytes(11);
+    char.demon.levelId = reader.ReadUInt16();
+    char.demon._unknown_data.b31_32 = reader.ReadBytes(2);
+    char.demon.level = reader.ReadUInt8();
+    char.demon.isDesecrated = reader.ReadUInt8();
+    char.demon._unknown_data.b35_57 = reader.ReadBytes(22);
+    char.demon.difficulty2 = reader.ReadUInt8();
+    char.demon._unknown_data.b59_61 = reader.ReadBytes(3);
+    char.demon.difficulty3 = reader.ReadUInt8();
+    char.demon._unknown_data.b63_86 = reader.ReadBytes(23);
+    for (let i = 0; i < 9; i++) {
+      char.demon.mods.push(reader.ReadUInt8());
+    }
+    char.demon.stats = Array.from(reader.ReadBytes((reader.bits.length - reader.offset) / 8))
   }
 }
 
@@ -106,8 +129,28 @@ export async function writeDemon(char: types.ID2S, constants: types.IConstantDat
   const writer = new BitWriter();
   writer.WriteArray(new Uint8Array([0x01, 0x00]));
   writer.WriteString("lf", 2);
-  if (char.demon?.data) {
-    writer.WriteBytes(new Uint8Array(char.demon.data));
+  if (char.demon) {
+    writer.WriteUInt8(1);
+    writer.WriteArray(char.demon._unknown_data.b1_4);
+    writer.WriteUInt16(char.demon.isSuperUnique ? 2 : 1);
+    writer.WriteUInt16(char.demon.index);
+    writer.WriteArray(char.demon._unknown_data.b9_15);
+    writer.WriteUInt8(char.demon.difficulty);
+    writer.WriteArray(char.demon._unknown_data.b17_28);
+    writer.WriteUInt16(char.demon.levelId);
+    writer.WriteArray(char.demon._unknown_data.b31_32);
+    writer.WriteUInt8(char.demon.level);
+    writer.WriteUInt8(char.demon.isDesecrated);
+    writer.WriteArray(char.demon._unknown_data.b35_57);
+    writer.WriteUInt8(char.demon.difficulty2);
+    writer.WriteArray(char.demon._unknown_data.b59_61);
+    writer.WriteUInt8(char.demon.difficulty3);
+    writer.WriteArray(char.demon._unknown_data.b63_86);
+    for (let i = 0; i < 9; i++) {
+      writer.WriteUInt8(char.demon.mods[i] || 0);
+    }
+    writer.WriteArray(new Uint8Array(char.demon.stats));
+    //writer.WriteBytes(new Uint8Array(char.demon.data));
   } else {
     writer.WriteArray(new Uint8Array([0x00, 0x00]));
   }

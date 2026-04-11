@@ -454,5 +454,24 @@ export enum EItemQuality {
 }
 
 export interface IDemon {
-  data: number[];
+  isSuperUnique: number;
+  index: number;
+  difficulty: number;
+  difficulty2: number;
+  difficulty3: number;
+  levelId: number;
+  level: number;
+  isDesecrated: number;
+  mods: number[];
+  stats: number[];
+  _unknown_data: {
+    b1_4: Uint8Array;
+    b9_15: Uint8Array;
+    b17_28: Uint8Array;
+    b31_32: Uint8Array;
+    b35_57: Uint8Array;
+    b59_61: Uint8Array;
+    b63_86: Uint8Array;
+
+  };
 }
