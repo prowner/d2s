@@ -431,8 +431,31 @@ export interface IStash {
   chronicle?: IChronicle;
 }
 
+export interface IChronicleItemData {
+  id: number;
+  n?: string; // name
+  i?: string; // inventory image file
+  c?: string; // item code
+  tc?: string; // transform color
+}
+
+export interface IChronicleItemEntry {
+  item: IChronicleItemData;
+  monster: number; // id into monsters.json (not resolvable from data this library has)
+  foundAt: number; // unix timestamp (seconds)
+}
+
 export interface IChronicle {
-  data: number[];
+  setItems: IChronicleItemEntry[];
+  uniqueItems: IChronicleItemEntry[];
+  runewords: IChronicleItemEntry[];
+  _unknown_data: {
+    envelopePadding: Uint8Array; // 44 bytes following the sector envelope's size field; not fully understood, preserved verbatim
+    trailing: Uint8Array; // bytes following the last entry, up to EOF; not fully understood, preserved verbatim
+    // entry counts as originally read; used on write to detect edits and zero `trailing` instead of
+    // carrying it forward stale, since a large real save with edits had it fully zeroed out.
+    originalCounts: { setItems: number; uniqueItems: number; runewords: number };
+  };
 }
 
 export interface IItemChronicle {

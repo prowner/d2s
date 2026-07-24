@@ -314,12 +314,10 @@ export async function readItem(
     }
     if (item.given_runeword) {
       item.runeword_id = reader.ReadUInt16(12);
-      //fix delerium on d2gs??? why is this a thing?
-      if (item.runeword_id == 2718) {
-        item.runeword_id = 48;
-      }
+
       const mappedId =
         {
+          2718: 48,
           2784: 196,
           2785: 197,
           2786: 198,
