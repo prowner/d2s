@@ -70,13 +70,15 @@ export function enhanceItem(item: types.IItem, constants: types.IConstantData, l
   }
   let details: any = null;
   if (constants.armor_items[item.type]) {
-    details = constants.armor_items[item.type];
-    item.type_id = ItemType.Armor;
-    if (details.maxac) {
-      if (item.ethereal == 0) {
-        item.defense_rating = details.maxac;
-      } else if (item.ethereal == 1) {
-        item.defense_rating = Math.floor(details.maxac * 1.5);
+    if (!config?.disableItemEnhancements) {
+      details = constants.armor_items[item.type];
+      item.type_id = ItemType.Armor;
+      if (details.maxac) {
+        if (item.ethereal == 0) {
+          item.defense_rating = details.maxac;
+        } else if (item.ethereal == 1) {
+          item.defense_rating = Math.floor(details.maxac * 1.5);
+        }
       }
     }
   } else if (constants.weapon_items[item.type]) {
@@ -157,6 +159,7 @@ export function enhanceItem(item: types.IItem, constants: types.IConstantData, l
   if (item.magic_attributes || item.runeword_attributes || item.socketed_items) {
     item.displayed_magic_attributes = _enhanceAttributeDescription(item.magic_attributes, constants, level, config);
     item.displayed_runeword_attributes = _enhanceAttributeDescription(item.runeword_attributes, constants, level, config);
+    item.displayed_set_attributes = item.set_attributes?.map((attrs) => _enhanceAttributeDescription(attrs, constants, level, config));
     item.combined_magic_attributes = _groupAttributes(_allAttributes(item, constants), constants);
     item.displayed_combined_magic_attributes = _enhanceAttributeDescription(item.combined_magic_attributes, constants, level, config);
   }

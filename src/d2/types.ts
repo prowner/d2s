@@ -387,6 +387,7 @@ export interface IItem {
   rare_name_id2: number;
   displayed_magic_attributes: IMagicProperty[];
   displayed_runeword_attributes: IMagicProperty[];
+  displayed_set_attributes?: IMagicProperty[][];
   displayed_combined_magic_attributes: IMagicProperty[];
   amount_in_shared_stash?: number;
   chronicle?: IItemChronicle;
