@@ -9829,7 +9829,7 @@ export let constants = {
     },
     null,
     {
-        "n": "Ars Al'Diablolos",
+        "n": "Ars Al'Diabolos",
         "i": "invbbb",
         "c": "waf",
         "tc": "cred"
